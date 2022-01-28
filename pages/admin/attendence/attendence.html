@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freshclass</title>
+  <link rel="stylesheet" href="./attendence.css" type="text/css" />
+  <link rel="shortcut icon" href="./../../../assets/logo/favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@500&family=Poppins:wght@500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+  <section id="main">
+    <div class="top-nav">
+      <div class="page-name">
+        <span>Profiles</span>
+      </div>
+      <div class="search-bar">
+        <div class="search-div">
+          <input type="text" id="search" placeholder="search...">
+          <div class="seach-icon"><em class="fal fa-search"></em></div>
+        </div>
+      </div>
+      <div class="profile">
+        <div class="pro-pic">
+          <img id="proimg"
+            src="https://static.vecteezy.com/system/resources/thumbnails/000/225/095/small/hipster-man-silhouette-with-mustache-and-beard-illustration.jpg"
+            alt="profile picture" width="100%">
+        </div>
+      </div>
+      <div id="noti"><span class="dot"></span><em class="fal fa-bell"></em></div>
+    </div>
+    <div class="left-nav"">
+        <div class=" logo-div">
+      <img src="./../../../assets/logo/logo_png.png" alt="logo" width="80%" />
+    </div>
+    <div class="main-menu">
+      <div class="btn-div">
+        <a href="./../profile/profile.html" class="btn">
+          <em class="fal fa-users"></em><span class="box tooltip">Profiles</span>
+        </a>
+      </div>
+      <div class="btn-div">
+        <a href="./../schedule/schedule.html" class="btn">
+          <em class="fal fa-clock"></em><span class="box tooltip">Schedule</span>
+        </a>
+      </div>
+      <div class="btn-div">
+        <a href="./../attendence/attendence.html" class="btn visited">
+          <em class="fal fa-clipboard-user"></em><span
+            class="box tooltip">Attendence</span>
+        </a>
+      </div>
+      <div class="btn-div">
+        <a href="./../assignment/assignment.html" class="btn">
+          <em class="fal fa-books"></em><span class="box tooltip">Assignment</span>
+        </a>
+      </div>
+      <div class="btn-div">
+        <a href="./../query/query.html" class="btn">
+          <em class="fal fa-comments-alt"></em><span class="box tooltip">Query</span>
+        </a>
+      </div>
+      <div class="btn-div">
+        <a href="https://freshworks.zoom.us/my/b2classroom" class="btn">
+          <em class="fal fa-video"></em><span class="box tooltip">Class</span>
+        </a>
+      </div>
+    </div>
+    <div class="settings">
+      <a href="./../settings/settings.html" class="btn-set"><em class="fal fa-cog"></em></a>
+    </div>
+    </div>
+    <div id="main-div" class="main-width">
+      <div>
+        <table id="att_table">
+          <caption></caption>
+          <thead>
+            <tr>
+              <th id="profile-head" colspan="2">Profiles</th>
+              <th id="id-number">Id</th>
+              <th id="firpre">
+                <label class="lable" for="presentcheck">Mark all</label>
+                <input type="checkbox" id="markallpresent"  onchange="markallpresent()" checked>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="table_body"></tbody>
+        </table>
+        <button class="sub" onclick="saveDetails()">Save</button>
+      </div>
+    </div>
+    <div id="slider" class="slider-change">
+      <div class="close">
+        <div id="reg-name-div"></div>
+        <div id="cal">
+          <div id="monthdateyear"><span id="month"></span><span id="date"></span>,<span id="year"></span></div>
+          <div id="next"><em class="fas fa-angle-right"></em></div>
+          <div id="prev"><em class="fas fa-angle-left"></em></div>
+        </div>
+      </div>
+      <div id="callist">
+        <div id="days-list">
+          <div class="sat">Sun</div>
+          <div class="mon">Mon</div>
+          <div class="tue">Tue</div>
+          <div class="wed">Wed</div>
+          <div class="thu">Thu</div>
+          <div class="fri">Fri</div>
+          <div class="sun">Sat</div>
+        </div>
+        <div id="dates"></div>
+      </div>
+    </div>
+  </section>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./attendence.js"></script>
+</body>
+
+</html>

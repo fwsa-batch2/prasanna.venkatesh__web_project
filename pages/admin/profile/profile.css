@@ -1,0 +1,882 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+}
+
+#main{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.top-navbar{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 96%;
+  height: 10vh;
+}
+
+.page-name{
+  padding: 1% 1%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 2vw;
+}
+
+.left-menu{
+  width: 4%;
+  height: 100vh;
+  position: relative;
+}
+
+.logo-div{
+  width: 100%;
+  height: 13.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50%;
+}
+
+.profile{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-profile-picture{
+  width: 33px;
+  height: 33px;
+  border: 0.5px solid #000;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#notification{
+  position: absolute;
+  top: 0;
+  right: 5%;
+  width: 4%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5vw;
+  cursor: pointer;
+}
+
+#notification:hover{
+  color: #63bfbf;
+  transition: all 0.5s;
+}
+
+.dot{
+  width: 8px;
+  height: 8px;
+  background-color: #63bfbf;
+  position: absolute;
+  top: 32%;
+  right: 32%;
+  border-radius: 100%;
+}
+
+#add-per{
+  position: absolute;
+  top: 0;
+  right: 9%;
+  width: 4%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5vw;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+#add-per:hover{
+  color: #63bfbf;
+  transition: all 0.5s;
+}
+
+#edit-per{
+  position: absolute;
+  top: 0;
+  right: 13%;
+  width: 4%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5vw;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+#edit-per:hover{
+  color: #63bfbf;
+  transition: all 0.5s;
+}
+
+.click-icon{
+  color: #63bfbf;
+  transition: all 0.5s;
+}
+
+#select{
+   border: none;
+   outline: none;
+   cursor: pointer;
+   font-family: 'Karla', sans-serif;
+   font-size: 1.2vw;
+   background-color: transparent;
+}
+
+#select:hover{
+  color: #63bfbf;
+  transition: all 0.5s;
+}
+
+.search-bar{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-div{
+  width: 35%;
+  height: auto;
+  position: relative;
+}
+
+#search{
+  width: 100%;
+  padding: 1.5% 3%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #000;
+  background-color: transparent;
+  outline: none;
+}
+
+.search-icon{
+  width: 10%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.main-menu{
+  width: 100%;
+  height: 70%;
+}
+
+.button-div{
+  width: 100%;
+  height: 17%;
+}
+
+.btn,.btn-set{
+  background-color: transparent;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  color: #000000;
+  font-size: 1.3vw;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover{
+  border-right: 2px solid #63bfbf;
+  color: #63bfbf;
+  transition: color 0.2s;
+}
+
+.btn-set:hover{
+  color: #63bfbf;
+  transition: color 0.2s;
+}
+
+.visited{
+  border-right: 2px solid #63bfbf;
+  color: #63bfbf;
+}
+
+.box{
+  width: auto;
+  height: auto;
+  background-color: rgba(70, 138, 155, 0.562);
+  position: absolute;
+  color: #fff;
+  left: 125%;
+  z-index: 10000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Karla', sans-serif;
+  border-radius: 6px;
+  font-size: 1.2vw;
+  padding: 10% 15%;
+  transition: all 0.5s;
+}
+
+.tooltip{
+  display: none;
+  transition: all 0.5s;
+}
+
+.btn:hover .tooltip{
+  display: block;
+}
+
+.settings{  
+  width: 100%;
+  height: 7%;
+  position: absolute;
+  bottom: 0;
+}
+
+#main-div{
+  position: absolute;
+  bottom: 0;
+  left: 4%;
+  height: 90vh;
+  background-color: #FFF2EE;
+  border-radius: 10px 0px 0px 0px;
+  border-left: 1px solid #dfe0e5;
+  border-top: 1px solid #dfe0e5;
+  padding: 0% 1%;
+  overflow-y: auto;
+}
+
+#main-div::-webkit-scrollbar{
+  display: none;
+}
+
+.main-width{
+  width: 96%;
+  transition: all 0.5s;
+}
+
+.main-change{
+  width: 73%;
+  transition: all 0.5s;
+}
+
+#student-head{
+  width: 100%;
+  height: 5vh;
+  position: sticky;
+  top: 0;
+  font-family: "Poppins", sans-serif;
+  border-bottom: 1px solid #dfe0e5;
+  font-size: 1vw;
+}
+
+.statuss,.status{
+  padding: 10% 10%;
+  border-radius: 5px;
+  color: #fff;
+}
+
+#student-name{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#student-id{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 30%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#student-squad{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#student-status{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 68%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#student-batch{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 85%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#list{
+  margin: 1% 0%;
+  width: 100%;
+  height: 7vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  font-family: 'Karla', sans-serif;
+  position: relative;
+  cursor: pointer;
+  font-size: 1vw;
+}
+
+#list:hover{
+  background-color: #eeeeee;
+  transition: all 0.2s;
+}
+
+.onclick{
+  background-color: #63bfbf;
+}
+
+#student-profile{
+  width: 5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#coach-profile{
+  width: 5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#student-profile-div{
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dfe0e5;
+  overflow: hidden;
+}
+
+#coach-profile-div{
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dfe0e5;
+  overflow: hidden;
+}
+
+#student-names{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#student-idno{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 30%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#student-squads{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#student-statuss{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 68%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#student-batches{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 85%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#student-del{
+  width: 5%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#coach-head{
+  width: 100%;
+  height: 5vh;
+  position: sticky;
+  top: 0;
+  font-family: "Poppins", sans-serif;
+  border-bottom: 1px solid #dfe0e5;
+  font-size: 1vw;
+}
+
+#coach-name{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#coach-id{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 35%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#coach-position{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 55%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#coach-status{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 76%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#coach-pro{
+  width: 5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#co-por-div{
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dfe0e5;
+  overflow: hidden;
+}
+
+#coach-names{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#coach-idno{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 35%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#coach-positions{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 55%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#coach-statuss{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 76%;
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+#coach-edi{
+  width: 3%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#coach-del{
+  width: 3%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#img{
+  object-fit:cover; 
+  max-width: 100%; 
+  max-height: 100%;
+}
+
+#slider{
+  height: 90vh;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #FFF2EE;
+  border-left: 1px solid #dfe0e5;
+  border-top: 1px solid #dfe0e5;
+  overflow: hidden;
+}
+
+.slider-width{
+  width: 0%;
+  transition: all 0.5s;
+}
+
+.slider-change{
+  width: 23%;
+  transition: all 0.5s;
+}
+
+.click,.clicka{
+  width: 95%;
+  height: 100%;
+  position: absolute;
+  z-index: 10000;
+}
+
+.close{
+  width: 100%;
+  height: 8vh
+  ;
+  border-bottom: 1px solid #dfe0e5;
+  position: relative;
+  background-color: #FFF2EE;
+}
+
+#reg-name-div{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0% 2%;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5vw;
+}
+
+.close-icon-div{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-icon{
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #000;
+  cursor: pointer;
+}
+
+.close-icon:hover{
+  background-color: #dfe0e5;
+  transition: all 0.5s;
+}
+
+.detial-div{
+  width: 100%;
+  height: 91%;
+  position: absolute;
+  bottom: 0;
+  background-color: #FFF2EE;
+  overflow-y: auto;
+}
+
+.detial-div::-webkit-scrollbar{
+  display: none;
+}
+
+.edit-div{
+  width: 100%;
+  height: 91%;
+  position: absolute;
+  bottom: 0;
+  background-color: #FFF2EE;
+  overflow-y: auto;
+}
+
+.edit-div::-webkit-scrollbar{
+  display: none;
+}
+
+.profile-div{
+  width: 70%;
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 5% 15%;
+  background-color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.det{
+  width: 100%;
+  padding: 0% 5%; 
+}
+
+input[type="text"],input[type="date"],input[type="email"],#reg-gen,#reg-status{
+  margin: 4% 0%;
+  width: 100%;
+  padding: 1% 2%;
+  border: none;
+  border-bottom: 1px solid #000;
+  background-color: transparent;
+  color: #000;
+  outline: none;
+}
+
+input[type="file"]{
+  display: none;
+}
+
+#submit{
+  margin: 4% 0%;
+  width: 100%;
+  padding: 2% 2%;
+  border: none;
+  background-color: #63bfbf;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.display{
+  display: none;
+}
+
+#profile-show{
+  width: 100%;
+  height: 91%;
+  overflow-y: auto;
+}
+
+#profile-show::-webkit-scrollbar{
+  display: none;
+}
+
+.date {
+  padding: 0% 3%;
+}
+
+.date h4{
+  font-family: "Poppins", sans-serif;
+  font-size: 1vw;
+  color: rgb(145, 145, 145);
+  margin-top: 7%;
+}
+
+.date div{
+  font-family: 'Karla', sans-serif;
+  font-size: 1.3vw;
+  margin-left: 3%;
+  padding-top: 2%;
+}
+
+.profile-detial div{
+  margin-bottom: 2%;
+}
+
+#profile-name{
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.5vw;
+}
+
+#profile-position{
+  font-family: 'Karla', sans-serif;
+  text-align: center;
+  color: rgb(145, 145, 145);
+  margin-bottom: 3%;
+}
+
+#profile-icons{
+  text-align: center;
+  font-family: 'Karla', sans-serif;
+}
+
+#profile-icons em{
+  font-size: 2vw;
+}
+
+#profile-icons div{
+  display: inline-block;
+  width: 20%;
+}
+
+#profile-icons a{  
+  text-decoration: none;
+  font-size: 1vw;
+}
+
+#profile-icons a:hover{
+  text-decoration: underline;
+  transition: all 0.3s;
+}
+
+#profile-mail a{
+  font-size: 1.1vw;
+  text-decoration: none;
+}
+
+#profile-mail a:hover{
+  text-decoration: underline;
+  transition: all 0.3s;
+}

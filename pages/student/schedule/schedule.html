@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freshclass</title>
+  <link rel="stylesheet" href="./schedule.css" type="text/css" />
+  <link rel="shortcut icon" href="./../../../Assets/Logo/Favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@500&family=Poppins:wght@600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+  <section id="main">
+    <div class="top-nav">
+      <div class="page-name">
+        <span>Schedule</span><span>
+          <select id="select" onchange="changeselect()">
+            <option value="Batch/I">Batch/I</option>
+            <option value="Batch/II">Batch/II</option>
+          </select>
+        </span>
+      </div>
+      <div class="search-bar">
+        <div class="search-div">
+          <input type="text" id="search" placeholder="search...">
+          <div class="seach-icon"><em class="fal fa-search"></em></div>
+        </div>
+      </div>
+      <div class="profile">
+        <div class="pro-pic">
+          <img id="proimg"
+            src="https://static.vecteezy.com/system/resources/thumbnails/000/225/095/small/hipster-man-silhouette-with-mustache-and-beard-illustration.jpg"
+            alt="profile picture" width="100%">
+        </div>
+      </div>
+      <div id="noti"><span class="dot"></span><em class="fal fa-bell"></em></div>
+    </div>
+    <div class="left-nav"">
+        <div class=" logo-div">
+      <img src="./../../../Assets/Logo/logo_png.png" alt="logo" width="80%" />
+    </div>
+    <div class="main-menu">
+      <div class="btn-div">
+        <button class="btn" onclick="profilebtn()">
+          <em class="fal fa-users"></em><span class="box tooltip">Profiles</span>
+        </button>
+      </div>
+      <div class="btn-div">
+        <button class="btn visited" onclick="schedulebtn()">
+          <em class="fal fa-clock"></em><span class="box tooltip">Schedule</span>
+        </button>
+      </div>
+      <div class="btn-div">
+        <button class="btn" onclick="attendencebtn()">
+          <em class="fal fa-clipboard-user"></em><span
+            class="box tooltip">Attendence</span>
+        </button>
+      </div>
+      <div class="btn-div">
+        <button class="btn" onclick="assignmentbtn()">
+          <em class="fal fa-books"></em><span class="box tooltip">Assignment</span>
+        </button>
+      </div>
+      <div class="btn-div">
+        <button class="btn" onclick="querybtn()">
+          <em class="fal fa-comments-alt"></em><span class="box tooltip">Query</span>
+        </button>
+      </div>
+      <div class="btn-div">
+        <button class="btn" onclick="classbtn()">
+          <em class="fal fa-video"></em><span class="box tooltip">Class</span>
+        </button>
+      </div>
+    </div>
+    <div class="settings">
+      <button class="btn-set" onclick="settingsbtn()"><em class="fal fa-cog"></em></button>
+    </div>
+    </div>
+    <div id="main-div">
+      <div id="cal-header">
+        <div id="cal-date">
+          <div id="cals-date"></div>
+        </div>
+        <div id="cal-day"></div>
+        <div id="cal-monthdateyear">
+          <div id="center">
+            <span id="cal-month"></span>,
+            <span id="cal-year"></span>
+          </div>
+        </div>
+        <div id="cal-next"><i class="fas fa-angle-right"></i></div>
+        <div id="cal-prev"><i class="fas fa-angle-left"></i></div>
+      </div>
+      <div id="time-graph">
+        <div id="cal-time">
+          <div class="time-div">
+            <div class="time">1AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">2AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">3AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">4AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">5AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">6AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">7AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">8AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">9AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">10AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">11AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">12AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">1PM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">2PM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">3PM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">4AM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">5PM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">6PM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">7PM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">8PM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">9PM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">10PM</div>
+            <hr>
+          </div>
+          <div class="time-div">
+            <div class="time">11PM</div>
+          </div>
+          <div id="cal-timetable">
+            <div id='time-bar' class='time-bar'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="slider" class="slider-change">
+      <div class="close">
+        <div id="reg-name-div"></div>
+        <div id="close-icon" class="close-icon display">
+          <div class="clo-icon" onclick="closereg()">
+            <em class="far fa-times"></em>
+          </div>
+        </div>
+        <div id="cal">
+          <div id="monthdateyear"><span id="month"></span><span id="date"></span>,<span id="year"></span></div>
+          <div id="next"><em class="fas fa-angle-right"></em></div>
+          <div id="prev"><em class="fas fa-angle-left"></em></div>
+        </div>
+      </div>
+      <div id="callist">
+        <div id="days-list">
+          <div class="sat">Sun</div>
+          <div class="mon">Mon</div>
+          <div class="tue">Tue</div>
+          <div class="wed">Wed</div>
+          <div class="thu">Thu</div>
+          <div class="fri">Fri</div>
+          <div class="sun">Sat</div>
+        </div>
+        <div id="dates"></div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./schedule.js"></script>
+</body>
+
+</html>

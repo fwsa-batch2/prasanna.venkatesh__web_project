@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freshclass</title>
+  <link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
+  <link rel="shortcut icon" href="./assets/logo/favicon.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+  <nav>
+    <div class="logo-div">
+      <img src="./assets/logo/logo.png" alt="Logo_image" height="100%">
+    </div>
+  </nav>
+  <section id="main">
+    <div class="left-div">
+      <img src="./assets/image/vector_img.png" alt="vector_image" width="100%">
+    </div>
+    <div class="right-div">
+      <div class="login-div">
+        <form onsubmit="submithandler(event)">
+          <h1>Welcome back.</h1>
+          <div class="option">
+            <label for="admin">
+              <div class="admin op boder">Admin</div>
+            </label>
+            <input type="radio" name="option" id="admin" class="radio" value="" onchange="adminvalue()">
+            <label for="coach">
+              <div class="coach op">coach</div>
+            </label>
+            <input type="radio" name="option" id="coach" class="radio" value="coach" onchange="coachvalue()">
+            <label for="student">
+              <div class="student op">student</div>
+            </label>
+            <input type="radio" name="option" id="student" class="radio" value="student" onchange="studentvalue()">
+          </div>
+          <div class="mail">
+            <input type="text" name="mail" id="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Mail@freshclass.com">
+          </div>
+          <div class="password">
+            <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" id="password" placeholder="Password">
+            <div class="eye"><em id="eyeopen" class="fal fa-eye"></em></div>
+          </div>
+          <div id="alart"></div>
+          <div class="submit-button">
+            <button type="submit" id="submit">Login</button>
+          </div>
+          <h6>Note: Password: Admin, mail: Admin.</h6>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./Assets/js/main.js"></script>
+</body>
+
+</html>

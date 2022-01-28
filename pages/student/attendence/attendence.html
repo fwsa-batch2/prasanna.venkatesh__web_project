@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freshclass</title>
+  <link rel="stylesheet" href="./attendence.css" type="text/css" />
+  <link rel="shortcut icon" href="./../../../Assets/Logo/Favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@500&family=Poppins:wght@500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+  <section id="main">
+    <div class="top-nav">
+      <div class="page-name">
+        <span>Profiles</span><span>
+          <select id="select" onchange="changeselect()">
+            <option value="student">student</option>
+            <option value="coach">coach</option>
+          </select>
+        </span>
+      </div>
+      <div class="search-bar">
+        <div class="search-div">
+          <input type="text" id="search" placeholder="search...">
+          <div class="seach-icon"><em class="fal fa-search"></em></div>
+        </div>
+      </div>
+      <div class="profile">
+        <div class="pro-pic">
+          <img id="proimg"
+            src="https://static.vecteezy.com/system/resources/thumbnails/000/225/095/small/hipster-man-silhouette-with-mustache-and-beard-illustration.jpg"
+            alt="profile picture" width="100%">
+        </div>
+      </div>
+      <div id="noti"><span class="dot"></span><em class="fal fa-bell"></em></div>
+      <div id="add-per" onclick="studentreg()"><em class="fal fa-user-plus"></em></div>
+    </div>
+    <div class="left-nav"">
+        <div class=" logo-div">
+      <img src="./../../../Assets/Logo/logo_png.png" alt="logo" width="80%" />
+    </div>
+    <div class="main-menu">
+      <div class="btn-div">
+        <button class="btn" onclick="profilebtn()">
+          <em class="fal fa-users"></em><span class="box tooltip">Profiles</span>
+        </button>
+      </div>
+      <div class="btn-div">
+        <button class="btn" onclick="schedulebtn()">
+          <em class="fal fa-clock"></em><span class="box tooltip">Schedule</span>
+        </button>
+      </div>
+      <div class="btn-div">
+        <button class="btn visited" onclick="attendencebtn()">
+          <em class="fal fa-clipboard-user"></em><span
+            class="box tooltip">Attendence</span>
+        </button>
+      </div>
+      <div class="btn-div">
+        <button class="btn" onclick="assignmentbtn()">
+          <em class="fal fa-books"></em><span class="box tooltip">Assignment</span>
+        </button>
+      </div>
+      <div class="btn-div">
+        <button class="btn" onclick="querybtn()">
+          <em class="fal fa-comments-alt"></em><span class="box tooltip">Query</span>
+        </button>
+      </div>
+      <div class="btn-div">
+        <button class="btn" onclick="classbtn()">
+          <em class="fal fa-video"></em><span class="box tooltip">Class</span>
+        </button>
+      </div>
+    </div>
+    <div class="settings">
+      <button class="btn-set" onclick="settingsbtn()"><em class="fal fa-cog"></em></button>
+    </div>
+    </div>
+    <div id="main-div" class="main-width"></div>
+    <div id="slider" class="slider-width">
+      <div class="close">
+        <div id="reg-name-div"></div>
+        <div class="close-icon">
+          <div class="clo-icon" onclick="closereg()">
+            <em class="fas fa-times"></em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./attendence.js"></script>
+</body>
+
+</html>
