@@ -9,7 +9,7 @@ function adminvalue() {
 
 function coachvalue() {
   let admin = document.getElementById("coach").value;
-  if (admin == "Coach") {
+  if (admin == "coach") {
     document.querySelector(".admin").classList.remove("boder");
     document.querySelector(".coach").classList.add("boder");
     document.querySelector(".student").classList.remove("boder");
@@ -18,7 +18,7 @@ function coachvalue() {
 
 function studentvalue() {
   let admin = document.getElementById("student").value;
-  if (admin == "Student") {
+  if (admin == "student") {
     document.querySelector(".admin").classList.remove("boder");
     document.querySelector(".coach").classList.remove("boder");
     document.querySelector(".student").classList.add("boder");
