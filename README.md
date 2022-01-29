@@ -1,5 +1,5 @@
 # Freshclass
-#### Netlify link : https://10dots-school-management-prasanna.netlify.app/
+#### Netlify link : https://fwsa-batch2.github.io/prasanna.venkatesh__web_project/
 #### Domin : https://10dotsschoolmanagement.fwsa.in/
 
 ## Admin Features
