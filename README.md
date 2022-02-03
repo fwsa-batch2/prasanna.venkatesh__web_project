@@ -1,9 +1,11 @@
 # Freshclass
-#### Live link : https://fwsa-batch2.github.io/prasanna.venkatesh__web_project/
-#### Domin : https://10dotsschoolmanagement.fwsa.in/
+#### Live Url : https://fwsa-batch2.github.io/prasanna.venkatesh__web_project/
+#### SonarCloud Url : https://sonarcloud.io/project/overview?id=fwsa-batch2_prasanna.venkatesh__web_project
 
 ## Admin Features
-###### Login(completed)
+### Admin login(completed)
+![Screenshot (121)](https://user-images.githubusercontent.com/83388298/152292458-2f87db82-1c70-441e-95e6-4d35f43e0e4b.png)
+
 ### Profile page
 ###### register student detials(completed)
 ###### delete profile(completed)
@@ -23,8 +25,10 @@
 ### settings page
 ###### change admin name username password and profile picture(inprocess) 
 
-## coach Features
-###### login(completed)
+## Coach Features
+### Coach login(completed)
+![Screenshot (122)](https://user-images.githubusercontent.com/83388298/152292496-c5377d03-7966-40a5-9214-9458994b2c08.png)
+
 ### Profile page
 ###### show profiles(completed)
 ###### show profile detials(completed)
@@ -42,8 +46,10 @@
 ### settings page
 ###### change profile detials and profile picture(inprocess) 
 
-## student Features
-###### Login(completed)
+## Student Features
+### Student login(completed)
+![Screenshot (123)](https://user-images.githubusercontent.com/83388298/152292539-35a164d9-7314-46d3-b4fb-c43c0a5b692e.png)
+
 ### Profile page
 ###### show profiles(completed)
 ###### show profile detials(completed)
