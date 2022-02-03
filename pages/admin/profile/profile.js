@@ -1,3 +1,73 @@
+function checkLogin(){
+  axios
+  .get("https://61c01eb233f24c0017823130.mockapi.io/Logincheck")
+  .then(function (Logincheck) {
+    let datas = Logincheck.data;
+    let loginlength = datas.length;
+    let loginExtist = "";
+
+    if (loginlength == 0) {
+      window.location.href = "./../../../index.html";
+    }
+
+    for (let r = 0; r < loginlength; r++) {
+      console.log(r);
+      if (
+        datas[r].mail != "admin@freshclass.com" ||
+        datas[r].password != "Admin@2021"
+      ) {
+        loginExtist = true;
+      }
+    }
+    console.log(loginExtist);
+    if (loginExtist) {
+      logOut();
+    }
+  });
+}
+
+function logOut() {
+  axios
+    .get("https://61c01eb233f24c0017823130.mockapi.io/Logincheck")
+    .then(function (Logincheck) {
+      let datas = Logincheck.data;
+      let lenForlogout = datas.length;
+      for (let r = 0; r < lenForlogout; r++) {
+        if (
+          datas[r].mail == "admin@freshclass.com" ||
+          datas[r].password == "Admin@2021"
+        ) {
+          let id = datas[r].id;
+          console.log(id);
+          axios
+            .delete(
+              "https://61c01eb233f24c0017823130.mockapi.io/Logincheck/" + id
+            )
+            .then(function () {
+              window.location.href = "./../../../index.html";
+            });
+        }
+      }
+    });
+}
+
+function dropDown() {
+  document.getElementById("dropdown").classList.toggle("show");
+}
+
+window.onclick = function (event) {
+  if (!event.target.matches(".dropdownbtn")) {
+    let dropdowns = document.getElementsByClassName("dropdown");
+    let i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
+      }
+    }
+  }
+};
+
 function studentreg() {
   document.getElementById("main-div").classList.add("main-change");
   document.getElementById("main-div").classList.remove("main-width");
@@ -23,13 +93,13 @@ const maxDate = new Date(
   0
 ).getDate();
 
-const minYear = new Date().getFullYear()-21;
-const maxYear = new Date().getFullYear()-17;
+const minYear = new Date().getFullYear() - 21;
+const maxYear = new Date().getFullYear() - 17;
 
 const dobMaxyear = `${maxYear}-12-${maxDate}`;
 
-document.getElementById("reg-dob").max=dobMaxyear;
-document.getElementById("reg-dob").min=`${minYear}-01-01`;
+document.getElementById("reg-dob").max = dobMaxyear;
+document.getElementById("reg-dob").min = `${minYear}-01-01`;
 
 function submithandler(event) {
   event.preventDefault();
@@ -53,9 +123,9 @@ function submithandler(event) {
       }
       console.log(exist);
 
-      if(exist){
+      if (exist) {
         alert(`This user is already exist`);
-      }else{
+      } else {
         storedetials();
       }
     });
@@ -72,17 +142,16 @@ function idnocheck() {
       let lenr = data.length;
 
       let idExist = "";
-      
+
       for (let i = 0; i < lenr; i++) {
         if (data[i].idno == idno) {
-          idExist =  true;
+          idExist = true;
         }
       }
 
-      if(idExist){
+      if (idExist) {
         alert("This id : " + idno + " is already exist");
       }
-      
     });
 }
 
@@ -96,7 +165,7 @@ function emailcheck() {
     .then(function (selects) {
       let data = selects.data;
       let lenr = data.length;
-      
+
       let mailExist = "";
 
       for (let i = 0; i < lenr; i++) {
@@ -105,7 +174,7 @@ function emailcheck() {
         }
       }
 
-      if(mailExist){
+      if (mailExist) {
         alert("This mail : " + mail + " is already exist");
       }
     });
@@ -129,27 +198,27 @@ function storedetials() {
 
   const select = changeselect();
 
-    axios
-      .post("https://61c01eb233f24c0017823130.mockapi.io/" + select, {
-        name: firstname,
-        lastname: lastname,
-        image: image,
-        idno: idno,
-        dob: dob,
-        squad: squad,
-        batch: batch,
-        status: status,
-        department: department,
-        gen: genders,
-        mail: mail,
-        number: number,
-        city: city,
-        password: password,
-      })
-      .then(function () {
-        showdetial();
-        coachdetial();
-      });
+  axios
+    .post("https://61c01eb233f24c0017823130.mockapi.io/" + select, {
+      name: firstname,
+      lastname: lastname,
+      image: image,
+      idno: idno,
+      dob: dob,
+      squad: squad,
+      batch: batch,
+      status: status,
+      department: department,
+      gen: genders,
+      mail: mail,
+      number: number,
+      city: city,
+      password: password,
+    })
+    .then(function () {
+      showdetial();
+      coachdetial();
+    });
 }
 
 function showdetial() {
@@ -251,7 +320,6 @@ function coachdetial() {
       document.getElementById("coach-profiles").innerHTML = detials;
 
       for (let i = 0; i < data.length; i++) {
-
         document.getElementsByClassName("coach-del-btn")[i].onclick =
           function () {
             document.getElementsByClassName("lists")[i].style.display = "none";
@@ -338,7 +406,7 @@ function changeselect() {
     document.getElementById("student-profiles").classList.remove("display");
     document.getElementById("student-head").classList.remove("display");
   }
-  
+
   return check;
 }
 
@@ -355,7 +423,7 @@ function gender() {
   document.getElementById("profile").src = image;
   return image;
 }
-
+checkLogin();
 coachdetial();
 gender();
 showdetial();

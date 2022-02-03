@@ -18,7 +18,7 @@
 
 <body>
   <section id="main">
-    <header class="top-navbar">
+    <div class="top-navbar">
       <div class="page-name">
         <span>Profiles</span><span>
           <select id="select" onchange="changeselect()">
@@ -35,14 +35,20 @@
       </div>
       <div class="profile">
         <div class="admin-profile-picture">
+          <button class="dropdownbtn" onclick="dropDown()"></button>
           <img id="proimg"
             src="https://static.vecteezy.com/system/resources/thumbnails/000/225/095/small/hipster-man-silhouette-with-mustache-and-beard-illustration.jpg"
             alt="profile picture" width="100%">
         </div>
-      </div>
+
+        <div class="dropdown" id="dropdown">
+          <button>Profile</button>
+          <button onclick="logOut()">Logout</button>
+        </div>
+      </div> 
       <div id="notification"><span class="dot"></span><em class="fal fa-bell"></em></div>
       <div id="add-per" onclick="studentreg()"><em class="fal fa-user-plus"></em></div>
-    </header>
+    </div>
     <div class="left-menu">
       <div class=" logo-div">
         <img src="./../../../assets/logo/logo_png.png" alt="logo" width="80%" />
@@ -122,24 +128,54 @@
             </label>
             <input type="file" id="profile-input" onchange="previewFile()">
             <div class="det">
-              <div><input type="text" id="reg-name" placeholder="First name" pattern="[A-Za-z]{3,20}" required></div>
-              <div><input type="text" id="reg-lastname" placeholder="Last name(optional)" pattern="[A-Za-z]{3,20}"></div>
-              <div><input type="text" id="reg-id" placeholder="Id no" onkeyup="idnocheck()" required></div>
-              <div><input type="text" id="reg-squad" placeholder="Squad name" required></div>
-              <div><input type="text" id="reg-department" placeholder="Department" pattern="[A-Za-z]{2,20}" required></div>
               <div>
+                <label for="reg-name">Firstname</label>
+                <input type="text" id="reg-name" placeholder="Firstname" pattern="[A-Za-z]{3,20}" required>
+              </div>
+              <div>
+                <label for="reg-lastname">Lastname</label>
+                <input type="text" id="reg-lastname" placeholder="Lastname" pattern="[A-Za-z]{3,20}" required>
+              </div>
+              <div>
+                <label for="reg-id">Id no</label>
+                <input type="text" id="reg-id" placeholder="Id no" onkeyup="idnocheck()" required>
+              </div>
+              <div>
+                <label for="reg-squad">Squad name</label>
+                <input type="text" id="reg-squad" placeholder="Squad name" required>
+              </div>
+              <div>
+                <label for="reg-department">Department</label>
+                <input type="text" id="reg-department" placeholder="Department" pattern="[A-Za-z]{2,20}" required>
+              </div>
+              <div>
+                <label for="reg-gen">Gender</label>
                 <select id="reg-gen" onchange="gender()">
                   <option value="male" selected>Male</option>
                   <option value="femal">Female</option>
                   <option value="other">Other</option>
                 </select>
               </div>
-              <div><input type="date" id="reg-dob"></div>
-              <div><input type="email" id="reg-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Mail@freshclass.com" onkeyup="emailcheck()" required></div>
-              <div><input type="text" id="reg-city" pattern="[A-Za-z]{3,20}" placeholder="City" required></div>
-              <div><input type="tel" id="reg-number" placeholder="Phone number" pattern="[0-9]{3}[0-9]{2}[0-9]{3,20}" required></div>
-              <div><input type="text" id="reg-password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" placeholder="Password" required></div>
-              <button id="submit" type="submit">Submit</button>
+              <div>
+                <label for="reg-dob">Date of birth</label>
+                <input type="date" id="reg-dob"></div>
+              <div>
+                <label for="reg-mail">Mail id</label>
+                <input type="email" id="reg-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Mail@freshclass.com" onkeyup="emailcheck()" required>
+              </div>
+              <div>
+                <label for="reg-city">City</label>
+                <input type="text" id="reg-city" pattern="[A-Za-z]{3,20}" placeholder="City" required>
+              </div>
+              <div>
+                <label for="reg-number">Phone no</label>
+                <input type="tel" id="reg-number" placeholder="Phone no" pattern="[0-9]{3}[0-9]{2}[0-9]{3,20}" required>
+              </div>
+              <div>
+                <label for="reg-password">Password</label>
+                <input type="text" id="reg-password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" placeholder="Password" required>
+              </div>
+                <button id="submit" type="submit">Register</button>
             </div>
         </form>
       </div>
@@ -177,7 +213,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
     integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
     crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
+  </script>
 
   <script src="./profile.js"></script>
 </body>

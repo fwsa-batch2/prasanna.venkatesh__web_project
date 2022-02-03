@@ -18,71 +18,78 @@
 
 <body>
   <section id="main">
-    <header class="top-navbar">
+    <div class="top-navbar">
       <div class="page-name">
-        <span>Schedule</span><span>
+        <span>Profiles</span><span>
           <select id="select" onchange="changeselect()">
-            <option value="Batch/I">Batch/I</option>
-            <option value="Batch/II">Batch/II</option>
+            <option value="student">student</option>
+            <option value="coach">coach</option>
           </select>
         </span>
       </div>
       <div class="search-bar">
         <div class="search-div">
           <input type="text" id="search" placeholder="search...">
-          <div class="seach-icon"><em class="fal fa-search"></em></div>
+          <div class="search-icon"><em class="fal fa-search"></em></div>
         </div>
       </div>
       <div class="profile">
-        <div class="pro-pic">
+        <div class="admin-profile-picture">
+          <button class="dropdownbtn" onclick="dropDown()"></button>
           <img id="proimg"
             src="https://static.vecteezy.com/system/resources/thumbnails/000/225/095/small/hipster-man-silhouette-with-mustache-and-beard-illustration.jpg"
             alt="profile picture" width="100%">
         </div>
-      </div>
+
+        <div class="dropdown" id="dropdown">
+          <button>Profile</button>
+          <button onclick="logOut()">Logout</button>
+        </div>
+      </div> 
       <div id="notification"><span class="dot"></span><em class="fal fa-bell"></em></div>
-    </header>
-    <div class="left-menu"">
-        <div class=" logo-div">
-      <img src="./../../../assets/logo/logo_png.png" alt="logo" width="80%" />
+      <div id="add-per" onclick="studentreg()"><em class="fal fa-user-plus"></em></div>
     </div>
-    <div class="main-menu">
-      <div class="button-div">
-        <a href="./../profile/profile.html" class="button">
-          <em class="fal fa-users"></em><span class="box tooltip">Profiles</span>
-        </a>
+    <div class="left-menu">
+      <div class=" logo-div">
+        <img src="./../../../assets/logo/logo_png.png" alt="logo" width="80%" />
       </div>
-      <div class="button-div">
-        <a href="./../schedule/schedule.html" class="button visited">
-          <em class="fal fa-clock"></em><span class="box tooltip">Schedule</span>
-        </a>
+      <div class="main-menu">
+        <div class="button-div">
+          <a href="./../profile/profile.html" class="btn visited">
+            <em class="fal fa-users"></em><span class="box tooltip">Profiles</span>
+          </a>
+        </div>
+        <div class="button-div">
+          <a href="./../schedule/schedule.html" class="btn">
+            <em class="fal fa-clock"></em><span class="box tooltip">Schedule</span>
+          </a>
+        </div>
+        <div class="button-div">
+          <a href="./../attendence/attendence.html" class="btn">
+            <em class="fal fa-clipboard-user"></em><span
+              class="box tooltip">Attendence</span>
+          </a>
+        </div>
+        <div class="button-div">
+          <a href="./../assignment/assignment.html" class="btn">
+            <em class="fal fa-books"></em><span class="box tooltip">Assignment</span>
+          </a>
+        </div>
+        <div class="button-div">
+          <a href="./../query/query.html" class="btn">
+            <em class="fal fa-comments-alt"></em><span class="box tooltip">Query</span>
+          </a>
+        </div>
+        <div class="button-div">
+          <a href="https://freshworks.zoom.us/my/b2classroom" class="btn">
+            <em class="fal fa-video"></em><span class="box tooltip">Class</span>
+          </a>
+        </div>
       </div>
-      <div class="button-div">
-        <a href="./../attendence/attendence.html" class="button">
-          <em class="fal fa-clipboard-user"></em><span
-            class="box tooltip">Attendence</span>
-        </a>
+      <div class="settings">
+        <a href="./../settings/settings.html" class="btn-set"><em class="fal fa-cog"></em></a>
       </div>
-      <div class="button-div">
-        <a href="./../assignment/assignment.html" class="button">
-          <em class="fal fa-books"></em><span class="box tooltip">Assignment</span>
-        </a>
       </div>
-      <div class="button-div">
-        <a href="./../query/query.html" class="button">
-          <em class="fal fa-comments-alt"></em><span class="box tooltip">Query</span>
-        </a>
-      </div>
-      <div class="button-div">
-        <a href="https://freshworks.zoom.us/my/b2classroom" class="button">
-          <em class="fal fa-video"></em><span class="box tooltip">Class</span>
-        </a>
-      </div>
-    </div>
-    <div class="settings">
-      <a href="./../settings/settings.html" class="button-set"><em class="fal fa-cog"></em></a>
-    </div>
-    </div>
     <div id="main-div">
       <div id="calendar-header">
         <div id="calendar-date-div">
@@ -95,8 +102,8 @@
             <span id="calendar-year"></span>
           </div>
         </div>
-        <div id="calendar-next"><i class="fas fa-angle-right"></i></div>
-        <div id="calendar-previous"><i class="fas fa-angle-left"></i></div>
+        <div id="calendar-next"><em class="fas fa-angle-right"></em></div>
+        <div id="calendar-previous"><em class="fas fa-angle-left"></em></div>
       </div>
       <div id="time-graph">
         <div id="calendar-time">
