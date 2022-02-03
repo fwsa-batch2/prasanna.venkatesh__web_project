@@ -1,5 +1,6 @@
 # Freshclass
-#### Live link : https://fwsa-batch2.github.io/prasanna.venkatesh__web_project/
+#### Live Url : https://fwsa-batch2.github.io/prasanna.venkatesh__web_project/
+#### SonarCloud Url : https://sonarcloud.io/project/overview?id=fwsa-batch2_prasanna.venkatesh__web_project
 
 ## Admin Features
 ###### Login(completed)
