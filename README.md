@@ -3,7 +3,7 @@
 #### SonarCloud Url : https://sonarcloud.io/project/overview?id=fwsa-batch2_prasanna.venkatesh__web_project
 
 ## Admin Features
-### Admin login
+### Admin login(completed)
 ![Screenshot (121)](https://user-images.githubusercontent.com/83388298/152292458-2f87db82-1c70-441e-95e6-4d35f43e0e4b.png)
 
 ### Profile page
@@ -26,7 +26,7 @@
 ###### change admin name username password and profile picture(inprocess) 
 
 ## Coach Features
-### Coach login
+### Coach login(completed)
 ![Screenshot (122)](https://user-images.githubusercontent.com/83388298/152292496-c5377d03-7966-40a5-9214-9458994b2c08.png)
 
 ### Profile page
@@ -47,7 +47,7 @@
 ###### change profile detials and profile picture(inprocess) 
 
 ## Student Features
-### Student login
+### Student login(completed)
 ![Screenshot (123)](https://user-images.githubusercontent.com/83388298/152292539-35a164d9-7314-46d3-b4fb-c43c0a5b692e.png)
 
 ### Profile page
