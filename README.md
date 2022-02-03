@@ -3,8 +3,7 @@
 #### SonarCloud Url : https://sonarcloud.io/project/overview?id=fwsa-batch2_prasanna.venkatesh__web_project
 
 ## Admin Features
-###### Login(completed)
-![Screenshot (115)](https://user-images.githubusercontent.com/83388298/152292285-6673bc21-47ff-49a3-939f-6fdf80352ed0.png)
+![Screenshot (121)](https://user-images.githubusercontent.com/83388298/152292458-2f87db82-1c70-441e-95e6-4d35f43e0e4b.png)
 
 ### Profile page
 ###### register student detials(completed)
@@ -26,12 +25,13 @@
 ###### change admin name username password and profile picture(inprocess) 
 
 ## coach Features
-###### login(completed)
+![Screenshot (122)](https://user-images.githubusercontent.com/83388298/152292496-c5377d03-7966-40a5-9214-9458994b2c08.png)
 ### Profile page
 ###### show profiles(completed)
 ###### show profile detials(completed)
 ###### seach profiles(inprocess)
 ### Schedule page
+
 ###### show time and class(completed)
 ###### delete schedule(completed)
 ###### calender(completed)
@@ -45,9 +45,10 @@
 ###### change profile detials and profile picture(inprocess) 
 
 ## student Features
-###### Login(completed)
+
 ### Profile page
-###### show profiles(completed)
+###### show profiles(completed)![Screenshot (123)](https://user-images.githubusercontent.com/83388298/152292539-35a164d9-7314-46d3-b4fb-c43c0a5b692e.png)
+
 ###### show profile detials(completed)
 ###### seach profiles(inprocess)
 ### Schedule page
