@@ -1,6 +1,5 @@
 # Freshclass
 #### Live link : https://fwsa-batch2.github.io/prasanna.venkatesh__web_project/
-#### Domin : https://10dotsschoolmanagement.fwsa.in/
 
 ## Admin Features
 ###### Login(completed)
