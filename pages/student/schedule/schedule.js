@@ -176,6 +176,7 @@ document.getElementById("cal-next").onclick = function () {
   }
 
   document.getElementById("date").innerText = de;
+
   calender();
   header();
   showtimetable();
@@ -189,15 +190,19 @@ document.getElementById("cal-prev").onclick = function () {
   }
 
   document.getElementById("date").innerText = de;
+
   calender();
   header();
   showtimetable();
 };
 
+
 function showtimetable() {
   let des = document.getElementById("date").innerText;
-  let mos = indmonth;
+  let mos = month.indexOf(document.getElementById("month").innerText);
   let yes = document.getElementById("year").innerText;
+
+  console.log(indmonth);
 
   if (des < 10) {
     des = 0 + des;
@@ -208,14 +213,19 @@ function showtimetable() {
     mons = "0" + mons;
   }
 
+  console.log(mons);
+
   axios
     .get("https://61c01eb233f24c0017823130.mockapi.io/response")
     .then(function (response) {
       let data = response.data;
+      console.log(data);
       let timeber = "";
       let array = [];
 
       let com = yes + "-" + mons + "-" + des;
+      console.log(com);
+
       let lens = data.length;
 
       for (let g = 0; g < lens; g++) {

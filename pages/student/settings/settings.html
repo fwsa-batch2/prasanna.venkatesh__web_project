@@ -35,69 +35,81 @@
       </div>
       <div class="profile">
         <div class="pro-pic">
-          <img id="proimg"
-            src="https://static.vecteezy.com/system/resources/thumbnails/000/225/095/small/hipster-man-silhouette-with-mustache-and-beard-illustration.jpg"
-            alt="profile picture" width="100%">
+          <img id="proimg" src="" alt="profile picture" width="100%">
         </div>
       </div>
       <div id="noti"><span class="dot"></span><em class="fal fa-bell"></em></div>
-      <div id="add-per" onclick="studentreg()"><em class="fal fa-user-plus"></em></div>
     </div>
-    <div class="left-nav"">
-        <div class=" logo-div">
-      <img src="./../../../Assets/Logo/logo_png.png" alt="logo" width="80%" />
-    </div>
-    <div class="main-menu">
-      <div class="btn-div">
-        <button class="btn" onclick="profilebtn()">
-          <em class="fal fa-users"></em><span class="box tooltip">Profiles</span>
-        </button>
+    <div class="left-nav">
+      <div class=" logo-div">
+        <img src="./../../../Assets/Logo/logo_png.png" alt="logo" width="80%" />
       </div>
-      <div class="btn-div">
-        <button class="btn" onclick="schedulebtn()">
-          <em class="fal fa-clock"></em><span class="box tooltip">Schedule</span>
-        </button>
-      </div>
-      <div class="btn-div">
-        <button class="btn" onclick="attendencebtn()">
-          <em class="fal fa-clipboard-user"></em><span
-            class="box tooltip">Attendence</span>
-        </button>
-      </div>
-      <div class="btn-div">
-        <button class="btn" onclick="assignmentbtn()">
-          <em class="fal fa-books"></em><span class="box tooltip">Assignment</span>
-        </button>
-      </div>
-      <div class="btn-div">
-        <button class="btn" onclick="querybtn()">
-          <em class="fal fa-comments-alt"></em><span class="box tooltip">Query</span>
-        </button>
-      </div>
-      <div class="btn-div">
-        <button class="btn" onclick="classbtn()">
-          <em class="fal fa-video"></em><span class="box tooltip">Class</span>
-        </button>
-      </div>
-    </div>
-    <div class="settings" onclick="settingsbtn()">
-      <button class="btn-set visited"><em class="fal fa-cog"></em></button>
-    </div>
-    </div>
-    <div id="main-div" class="main-width"></div>
-    <div id="slider" class="slider-width">
-      <div class="close">
-        <div id="reg-name-div"></div>
-        <div class="close-icon">
-          <div class="clo-icon" onclick="closereg()">
-            <em class="fas fa-times"></em>
-          </div>
+      <div class="main-menu">
+        <div class="button-div">
+          <a href="./profile.html" class="button">
+            <em class="fal fa-users"></em><span class="box tooltip">Profiles</span>
+          </a>
+        </div>
+        <div class="button-div">
+          <a href="./../schedule/schedule.html" class="button">
+            <em class="fal fa-clock"></em><span class="box tooltip">Schedule</span>
+          </a>
+        </div>
+        <div class="button-div">
+          <a href="./../attendence/attendence.html" class="button">
+            <em class="fal fa-clipboard-user"></em><span class="box tooltip">Attendence</span>
+          </a>
+        </div>
+        <div class="button-div">
+          <a href="./../assignment/assignment.html" class="button">
+            <em class="fal fa-books"></em><span class="box tooltip">Assignment</span>
+          </a>
+        </div>
+        <div class="button-div">
+          <a href="./../query/query.html" class="button">
+            <em class="fal fa-comments-alt"></em><span class="box tooltip">Query</span>
+          </a>
+        </div>
+        <div class="button-div">
+          <a href="https://freshworks.zoom.us/my/b2classroom" class="button">
+            <em class="fal fa-video"></em><span class="box tooltip">Class</span>
+          </a>
         </div>
       </div>
     </div>
-  </section>
+    <div id="main-div" class="main-width">
+      <form>
+        <div id="profileChange">
+          <img id="changeProfile" src="" alt="profile picture" width="100%">
+          <div id="profileChangeIcon"><em class="fal fa-camera"></em></div>
+        </div>
   
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <div id="gitOn">
+          <div>Github</div>
+          <div id="gitSwitch">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        <div></div>
+        <div id="slackOn">
+          <div>Slack</div>
+          <div id="slackSwitch">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+    integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="./settings.js"></script>
 </body>
 

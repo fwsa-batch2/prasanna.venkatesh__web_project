@@ -78,35 +78,6 @@ function check(value) {
   }
 }
 
-function loginCheck(mail, passwords) {
-  axios
-    .get("https://61c01eb233f24c0017823130.mockapi.io/Logincheck")
-    .then(function (Logincheck) {
-      let datas = Logincheck.data;
-      let loginlength = datas.length;
-      let loginExtist = "";
-      if (loginlength == 0) {
-        loginExtist = true;
-      }
-      for (let r = 0; r < loginlength; r++) {
-        console.log(r);
-        if (datas[r].mail != mail && datas[r].password != passwords) {
-          loginExtist = true;
-        }
-      }
-      if (loginExtist) {
-        axios
-          .post("https://61c01eb233f24c0017823130.mockapi.io/Logincheck", {
-            mail: mail,
-            password: passwords,
-          })
-          .then(function () {
-            window.location.href = "./pages/admin/profile/profile.html";
-          });
-      }
-    });
-}
-
 function checksec(value) {
   let mail = document.getElementById("mail").value;
   let passworda = document.getElementById("password").value;
@@ -127,7 +98,7 @@ function checksec(value) {
         }
 
         if (getvalu) {
-          window.location.href = "./pages/coach/profile/profile.html";
+          coachLoginCheck(mail, passworda)
         } else {
           document.getElementById("alart").innerHTML =
             "<em class='fal fa-exclamation-circle'></em> Mail id or password is not exist";
@@ -158,11 +129,95 @@ function checkthr(value) {
         }
 
         if (getvalu) {
-          window.location.href = "./pages/student/profile/profile.html";
+          studentLoginCheck(mail, passwordd);
         } else {
           document.getElementById("alart").innerHTML =
             "<em class='fal fa-exclamation-circle'></em> Mail id or password is not exist";
         }
       });
   }
+}
+
+function loginCheck(mail, passwords) {
+  axios
+    .get("https://61c01eb233f24c0017823130.mockapi.io/Logincheck")
+    .then(function (Logincheck) {
+      let datas = Logincheck.data;
+      let loginlength = datas.length;
+      let loginExtist = "";
+      if (loginlength == 0) {
+        loginExtist = true;
+      }
+      for (let r = 0; r < loginlength; r++) {
+        if (datas[r].mail != mail && datas[r].password != passwords) {
+          loginExtist = true;
+        }
+      }
+
+      if (loginExtist) {
+        axios
+          .post("https://61c01eb233f24c0017823130.mockapi.io/Logincheck", {
+            mail: mail,
+            password: passwords,
+          })
+          .then(function () {
+            window.location.href = "./pages/admin/profile/profile.html";
+          });
+      }
+    });
+}
+
+function coachLoginCheck(mail, passwords) {
+  axios
+    .get("https://61c01eb233f24c0017823130.mockapi.io/Logincheck")
+    .then(function (Logincheck) {
+      let datas = Logincheck.data;
+      let loginlength = datas.length;
+      let loginExtist = "";
+      if (loginlength == 0) {
+        loginExtist = true;
+      }
+      for (let r = 0; r < loginlength; r++) {
+        if (datas[r].mail != mail && datas[r].password != passwords) {
+          loginExtist = true;
+        }
+      }
+
+      if (loginExtist) {
+        axios
+          .post("https://61c01eb233f24c0017823130.mockapi.io/Logincheck", {
+            mail: mail,
+            password: passwords,
+          })
+          .then(function () {
+            window.location.href = "./pages/coach/profile/profile.html";
+          });
+      }
+    });
+}
+
+function studentLoginCheck(mail, passwords) {
+  axios
+    .get("https://61c01eb233f24c0017823130.mockapi.io/Logincheck")
+    .then(function (Logincheck) {
+      let datas = Logincheck.data;
+      let loginlength = datas.length;
+      let loginExtist = true;
+      for (let r = 0; r < loginlength; r++) {
+        if (datas[r].mail == mail && datas[r].password == passwords) {
+          loginExtist = false;
+        }
+      }
+
+      if (loginExtist) {
+        axios
+          .post("https://61c01eb233f24c0017823130.mockapi.io/Logincheck", {
+            mail: mail,
+            password: passwords,
+          })
+          .then(function () {
+            window.location.href = "./pages/student/profile/profile.html";
+          });
+      }
+    });
 }

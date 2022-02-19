@@ -1,53 +1,45 @@
-function checkLogin(){
-  axios
-  .get("https://61c01eb233f24c0017823130.mockapi.io/Logincheck")
-  .then(function (Logincheck) {
-    let datas = Logincheck.data;
-    let loginlength = datas.length;
-    let loginExtist = "";
+let idArray = [];
 
-    if (loginlength == 0) {
-      window.location.href = "./../../../index.html";
-    }
-
-    for (let r = 0; r < loginlength; r++) {
-      console.log(r);
-      if (
-        datas[r].mail != "admin@freshclass.com" ||
-        datas[r].password != "Admin@2021"
-      ) {
-        loginExtist = true;
-      }
-    }
-    console.log(loginExtist);
-    if (loginExtist) {
-      logOut();
-    }
-  });
-}
-
-function logOut() {
+function checkLogin() {
   axios
     .get("https://61c01eb233f24c0017823130.mockapi.io/Logincheck")
     .then(function (Logincheck) {
       let datas = Logincheck.data;
-      let lenForlogout = datas.length;
-      for (let r = 0; r < lenForlogout; r++) {
-        if (
-          datas[r].mail == "admin@freshclass.com" ||
-          datas[r].password == "Admin@2021"
-        ) {
-          let id = datas[r].id;
-          console.log(id);
-          axios
-            .delete(
-              "https://61c01eb233f24c0017823130.mockapi.io/Logincheck/" + id
-            )
-            .then(function () {
-              window.location.href = "./../../../index.html";
-            });
-        }
-      }
+      let loginlength = datas.length;
+      let loginExtist = true;
+
+      axios
+        .get("https://61c01eb233f24c0017823130.mockapi.io/response/" + 1)
+        .then(function (response) {
+          let data = response.data;
+
+          for (let r = 0; r < loginlength; r++) {
+              if (
+                datas[r].mail == data.mail ||
+                datas[r].password == data.password
+              ) {
+                let id = datas[r].id;
+                idArray.push(id);
+                let adminid = data.id;
+                idArray.push(adminid);
+
+                loginExtist = false;
+            }
+          }
+
+          if (loginExtist) {
+            window.location.href = "./../../../index.html";
+          }
+        });
+    });
+}
+
+function logOut() {
+  let id = idArray[0];
+  axios
+    .delete("https://61c01eb233f24c0017823130.mockapi.io/Logincheck/" + id)
+    .then(function () {
+      window.location.href = "./../../../index.html";
     });
 }
 
@@ -414,6 +406,8 @@ function gender() {
   const gendera = document.getElementById("reg-gen").value;
   let image = "";
   if (gendera == "other" || gendera == "female") {
+
+    console.log("prasanna");
     image =
       "https://static.vecteezy.com/system/resources/thumbnails/004/056/978/small_2x/young-woman-portrait-free-vector.jpg";
   } else {
@@ -421,8 +415,8 @@ function gender() {
       "https://icons-for-free.com/iconfiles/png/512/boy+guy+man+icon-1320166733913205010.png";
   }
   document.getElementById("profile").src = image;
-  return image;
 }
+
 checkLogin();
 coachdetial();
 gender();
