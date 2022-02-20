@@ -195,7 +195,7 @@ body {
   transition: all 0.5s;
 }
 
-.search-bar {
+.search-bar{
   width: 100%;
   height: 100%;
   display: flex;
@@ -203,13 +203,13 @@ body {
   justify-content: center;
 }
 
-.search-div {
+.search-div{
   width: 35%;
   height: auto;
   position: relative;
 }
 
-#search {
+#search{
   width: 100%;
   padding: 1.5% 3%;
   border-top: none;
@@ -220,7 +220,7 @@ body {
   outline: none;
 }
 
-.seach-icon {
+.search-icon{
   width: 10%;
   height: 100%;
   position: absolute;
@@ -672,8 +672,8 @@ body {
 
 #classs-time {
   width: 100%;
-  height: 30vh;
-  padding: 5%;
+  height: 35vh;
+  padding: 3%;
   position: relative;
   font-family: "Poppins", sans-serif;
   font-size: 1vw;
@@ -681,7 +681,7 @@ body {
 }
 
 #select-class {
-  width: 85%;
+  width: 100%;
   padding: 2% 4%;
   cursor: pointer;
   margin-bottom: 4%;
@@ -689,13 +689,13 @@ body {
 
 #Timein,
 #Timeout {
-  width: 38.7%;
+  width: 45.8%;
   padding: 1.5% 3%;
   margin-bottom: 4%;
 }
 
 #timedate {
-  width: 87%;
+  width: 100%;
   padding: 1.5% 3%;
   margin-bottom: 4%;
 }
@@ -703,8 +703,8 @@ body {
 #timesave {
   position: absolute;
   bottom: 5%;
-  right: 5%;
-  padding: 2% 4%;
+  right: 3%;
+  padding: 2% 8%;
   background-color: #63bfbf;
   border: none;
   outline: none;
@@ -717,7 +717,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 57.5%;
+  height: 47vh;
   font-family: "Poppins", sans-serif;
   overflow-y: auto;
 }

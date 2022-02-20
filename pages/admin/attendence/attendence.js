@@ -1,60 +1,55 @@
-function checkLogin(){
-  axios
-  .get("https://61c01eb233f24c0017823130.mockapi.io/Logincheck")
-  .then(function (Logincheck) {
-    let datas = Logincheck.data;
-    let loginlength = datas.length;
-    let loginExtist = "";
+let idArray = [];
 
-    if (loginlength == 0) {
-      window.location.href = "./../../../index.html";
-    }
-
-    for (let r = 0; r < loginlength; r++) {
-      console.log(r);
-      if (
-        datas[r].mail != "admin@freshclass.com" ||
-        datas[r].password != "Admin@2021"
-      ) {
-        loginExtist = true;
-      }
-    }
-    console.log(loginExtist);
-    if (loginExtist) {
-      logOut();
-    }
-  });
-}
-
-function logOut() {
+function checkLogin() {
   axios
     .get("https://61c01eb233f24c0017823130.mockapi.io/Logincheck")
     .then(function (Logincheck) {
       let datas = Logincheck.data;
-      let lenForlogout = datas.length;
-      for (let r = 0; r < lenForlogout; r++) {
-        if (
-          datas[r].mail == "admin@freshclass.com" ||
-          datas[r].password == "Admin@2021"
-        ) {
-          let id = datas[r].id;
-          console.log(id);
-          axios
-            .delete(
-              "https://61c01eb233f24c0017823130.mockapi.io/Logincheck/" + id
-            )
-            .then(function () {
-              window.location.href = "./../../../index.html";
-            });
-        }
-      }
+      let loginlength = datas.length;
+      let loginExtist = true;
+
+      axios
+        .get("https://61c01eb233f24c0017823130.mockapi.io/response/" + 1)
+        .then(function (response) {
+          let data = response.data;
+
+          for (let r = 0; r < loginlength; r++) {
+              if (
+                datas[r].mail == data.mail ||
+                datas[r].password == data.password
+              ) {
+                let id = datas[r].id;
+                idArray.push(id);
+                let adminid = data.id;
+                idArray.push(adminid);
+
+                loginExtist = false;
+            }
+          }
+
+          if (loginExtist) {
+            window.location.href = "./../../../index.html";
+          }
+        });
     });
 }
 
-document.getElementById("reg-name-div").innerText = "Calendar";
+function logOut() {
+  let id = idArray[0];
+  axios
+    .delete("https://61c01eb233f24c0017823130.mockapi.io/Logincheck/" + id)
+    .then(function () {
+      window.location.href = "./../../../index.html";
+    });
+
+  }
+
+  
+
+document.getElementById("calendar-title").innerText = "Calendar";
 document.querySelector(".close").style.backgroundColor = "#63bfbf";
 
-let month = [
+const month = [
   "Jan",
   "Feb",
   "Mar",
@@ -69,85 +64,93 @@ let month = [
   "Dec",
 ];
 
-let monthIndex = new Date().getMonth();
-let year = new Date().getFullYear();
+const week = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+let monthindex = new Date().getMonth();
+let yearindex = new Date().getFullYear();
 
 document.getElementById("month").innerText = month[new Date().getMonth()];
-document.getElementById("year").innerText = year;
+document.getElementById("year").innerText = yearindex;
 
 document.getElementById("date").innerText = new Date().getDate();
 document.getElementById("next").onclick = function () {
-  if (monthIndex < 11) {
-    monthIndex++;
-  } else if (monthIndex == 11) {
-    monthIndex = 0;
-    year = year + 1;
+  if (monthindex < 11) {
+    monthindex++;
+  } else if (monthindex == 11) {
+    monthindex = 0;
+    yearindex = yearindex + 1;
   }
-  document.getElementById("month").innerText = month[monthIndex];
-  document.getElementById("year").innerText = year;
+
+  document.getElementById("month").innerText = month[monthindex];
+  document.getElementById("year").innerText = yearindex;
   calender();
-  showPresent();
+  header();
+  showtimetable();
 };
 
-document.getElementById("prev").onclick = function () {
-  if (monthIndex > 0) {
-    monthIndex--;
-  } else if (monthIndex == 0) {
-    monthIndex = 11;
-    year = year - 1;
+document.getElementById("previous").onclick = function () {
+  if (monthindex > 0) {
+    monthindex--;
+  } else if (monthindex == 0) {
+    monthindex = 11;
+    yearindex = yearindex - 1;
   }
-  document.getElementById("month").innerText = month[monthIndex];
-  document.getElementById("year").innerText = year;
+
+  document.getElementById("month").innerText = month[monthindex];
+  document.getElementById("year").innerText = yearindex;
   calender();
-  showPresent();
+  header();
+  showtimetable();
 };
 
 function calender() {
-  let indmonth = month.indexOf(document.getElementById("month").innerText);
+  let monthIndexvalue = month.indexOf(
+    document.getElementById("month").innerText
+  );
 
-  let daystart = new Date(
+  let firstWeekday = new Date(
     document.getElementById("year").innerText,
-    indmonth,
+    monthIndexvalue,
     1
   ).getDay();
 
-  let monthlast = new Date(
+  let monthEnd = new Date(
     document.getElementById("year").innerText,
-    indmonth + 1,
+    monthIndexvalue + 1,
     0
   ).getDate();
 
   let startdate = "";
-  for (let e = 0; e < daystart + monthlast; e++) {
+  for (let e = 0; e < firstWeekday + monthEnd; e++) {
     let dates = "<div class='days-no'></div>";
     startdate = startdate + dates;
   }
 
   document.getElementById("dates").innerHTML = startdate;
 
-  for (let l = daystart; l < daystart + monthlast; l++) {
-    document.getElementsByClassName("days-no")[l].innerText = l - daystart + 1;
+  for (let w = firstWeekday; w < firstWeekday + monthEnd; w++) {
+    document.getElementsByClassName("days-no")[w].innerText =
+      w - firstWeekday + 1;
   }
 
-  for (let k = 0; k < daystart + monthlast; k++) {
+  for (let l = 0; l < firstWeekday + monthEnd; l++) {
     if (
-      document.getElementsByClassName("days-no")[k].innerText ==
+      document.getElementsByClassName("days-no")[l].innerText ==
       document.getElementById("date").innerText
     ) {
-      document.getElementsByClassName("days-no")[k].classList.add("today");
+      document.getElementsByClassName("days-no")[l].classList.add("today");
     }
 
-    document.getElementsByClassName("days-no")[k].onclick = function () {
+    document.getElementsByClassName("days-no")[l].onclick = function () {
       let div = document.getElementById("dates");
       let add = div.getElementsByTagName("div").length;
+
       for (let r = 0; r < add; r++) {
         document.getElementsByClassName("days-no")[r].classList.remove("today");
       }
-      document.getElementsByClassName("days-no")[k].classList.add("today");
+      document.getElementsByClassName("days-no")[l].classList.add("today");
       document.getElementById("date").innerText =
-        document.getElementsByClassName("days-no")[k].innerText;
-
-      showPresent();
+        document.getElementsByClassName("days-no")[l].innerText;
     };
   }
 }

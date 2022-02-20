@@ -186,6 +186,8 @@ function storedetials() {
   const city = document.getElementById("reg-city").value;
   const number = document.getElementById("reg-number").value;
   const password = document.getElementById("reg-password").value;
+  const git = "";
+  const slack = "";
   const image = document.getElementById("profile").src;
 
   const select = changeselect();
@@ -204,6 +206,8 @@ function storedetials() {
       gen: genders,
       mail: mail,
       number: number,
+      git: git,
+      slack: slack,
       city: city,
       password: password,
     })
@@ -255,44 +259,72 @@ function showdetial() {
           document.getElementById("detial").classList.add("display");
 
           let id = data[i].id;
-          axios
-            .get(
-              "https://61c01eb233f24c0017823130.mockapi.io/Studentlist/" + id
-            )
-            .then(function (Studentlists) {
-              let ampm = "";
-              let time = new Date().getHours() % 12;
+          studentDetialShow(id);
+        }
 
-              if (new Date().getHours() < 12) {
-                ampm = "AM";
-              } else {
-                ampm = "PM";
-              }
-
-              if (time == 0) {
-                time = 12;
-              }
-
-              let get = Studentlists.data;
-              document.getElementById("profile-picture").src = get.image;
-              document.getElementById("profile-name").innerText =
-                get.name + " " + get.lastname;
-              document.getElementById("git").href = get.git;
-              document.getElementById("slack").href = get.slack;
-              document.getElementById("profile-time").innerText =
-                time + ":" + new Date().getMinutes() + " " + ampm;
-              document.getElementById("profile-mail").innerHTML =
-                "<a href='mailto:" + get.mail + "'>" + get.mail + "</a>";
-              document.getElementById("profile-number").innerText = get.number;
-              document.getElementById("profile-city").innerText = get.city;
-              document.getElementById("profile-department").innerText =
-                get.department;
-              document.getElementById("profile-dob").innerText = get.dob;
-              document.getElementById("add-per").classList.remove("click-icon");
-            });
-        };
-      }
+        if(document.getElementsByClassName("statuss")[i].innerText == "Active"){
+          document.getElementsByClassName("statuss")[i].style.backgroundColor="#63bfbf"
+        }else if(document.getElementsByClassName("statuss")[i].innerText == "Leave"){
+          document.getElementsByClassName("statuss")[i].style.backgroundColor="#1bdf3c"
+        }else{
+          document.getElementsByClassName("statuss")[i].style.backgroundColor="red"
+        }
+        }
+      
     });
+}
+
+function studentDetialShow(id){
+        
+  axios
+    .get(
+      "https://61c01eb233f24c0017823130.mockapi.io/Studentlist/" + id
+    )
+    .then(function (Studentlists) {
+      let ampm = "";
+      let time = new Date().getHours() % 12;
+
+      if (new Date().getHours() < 12) {
+        ampm = "AM";
+      } else {
+        ampm = "PM";
+      }
+
+      if (time == 0) {
+        time = 12;
+      }
+
+      let get = Studentlists.data;
+
+      if(get.git == ""){
+        document.getElementById("profile-git").classList.add("display");
+      }else{
+        document.getElementById("profile-git").classList.remove("display");
+        document.getElementById("git").href = get.git;
+      }
+
+      if(get.slack == ""){
+        document.getElementById("profile-slack").classList.add("display");
+      }else{
+        document.getElementById("profile-slack").classList.remove("display");
+        document.getElementById("slack").href = get.slack;
+      }
+
+      document.getElementById("profile-pictue").src = get.image;
+      document.getElementById("prifile-name").innerText =
+        get.name + " " + get.lastname;
+      document.getElementById("git").href = get.git;
+      document.getElementById("slack").href = get.slack;
+      document.getElementById("profile-time").innerText =
+        time + ":" + new Date().getMinutes() + " " + ampm;
+      document.getElementById("profile-mail").innerHTML =
+        "<a href='mailto:" + get.mail + "'>" + get.mail + "</a>";
+      document.getElementById("profile-number").innerText = get.number;
+      document.getElementById("profile-city").innerText = get.city;
+      document.getElementById("profile-department").innerText = get.department;
+      document.getElementById("profile-dob").innerText = get.dob;
+    });
+
 }
 
 function coachdetial() {

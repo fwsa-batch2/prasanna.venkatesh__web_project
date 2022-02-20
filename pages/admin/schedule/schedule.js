@@ -1,55 +1,72 @@
-function checkLogin(){
-  axios
-  .get("https://61c01eb233f24c0017823130.mockapi.io/Logincheck")
-  .then(function (Logincheck) {
-    let datas = Logincheck.data;
-    let loginlength = datas.length;
-    let loginExtist = "";
+let idArray = [];
 
-    if (loginlength == 0) {
-      window.location.href = "./../../../index.html";
-    }
-
-    for (let r = 0; r < loginlength; r++) {
-      console.log(r);
-      if (
-        datas[r].mail != "admin@freshclass.com" ||
-        datas[r].password != "Admin@2021"
-      ) {
-        loginExtist = true;
-      }
-    }
-    console.log(loginExtist);
-    if (loginExtist) {
-      logOut();
-    }
-  });
-}
-
-function logOut() {
+function checkLogin() {
   axios
     .get("https://61c01eb233f24c0017823130.mockapi.io/Logincheck")
     .then(function (Logincheck) {
       let datas = Logincheck.data;
-      let lenForlogout = datas.length;
-      for (let r = 0; r < lenForlogout; r++) {
-        if (
-          datas[r].mail == "admin@freshclass.com" ||
-          datas[r].password == "Admin@2021"
-        ) {
-          let id = datas[r].id;
-          console.log(id);
-          axios
-            .delete(
-              "https://61c01eb233f24c0017823130.mockapi.io/Logincheck/" + id
-            )
-            .then(function () {
-              window.location.href = "./../../../index.html";
-            });
-        }
-      }
+      let loginlength = datas.length;
+      let loginExtist = true;
+
+      axios
+        .get("https://61c01eb233f24c0017823130.mockapi.io/response/" + 1)
+        .then(function (response) {
+          let data = response.data;
+
+          for (let r = 0; r < loginlength; r++) {
+              if (
+                datas[r].mail == data.mail ||
+                datas[r].password == data.password
+              ) {
+                let id = datas[r].id;
+                idArray.push(id);
+                let adminid = data.id;
+                idArray.push(adminid);
+
+                loginExtist = false;
+            }
+          }
+
+          if (loginExtist) {
+            window.location.href = "./../../../index.html";
+          }
+        });
     });
 }
+
+function logOut() {
+  let id = idArray[0];
+  axios
+    .delete("https://61c01eb233f24c0017823130.mockapi.io/Logincheck/" + id)
+    .then(function () {
+      window.location.href = "./../../../index.html";
+    });
+}
+
+const minDate = new Date().getDate();
+const minYear = new Date().getFullYear();
+let minMonth = new Date().getMonth()+1;
+
+if(minMonth<10){
+  minMonth = `0${minMonth}`
+}
+
+document.getElementById("timedate").min = `${minYear}-${minMonth}-${minDate}`;
+document.getElementById("timedate").value = `${minYear}-${minMonth}-${minDate}`;
+
+let timeHours = new Date().getHours();
+if(timeHours<10){
+  timeHours = `0${timeHours}`
+}
+
+let timeMins = new Date().getMinutes();
+
+if(timeMins<10){
+  timeMins = `0${timeMins}`
+}
+
+document.getElementById("Timein").value=`${timeHours}:${timeMins}:00`;
+document.getElementById("Timeout").value=`${timeHours+1}:${timeMins}:00`;
 
 document.getElementById("calendar-title").innerText = "calendar";
 document.querySelector(".close").style.backgroundColor = "#63bfbf";

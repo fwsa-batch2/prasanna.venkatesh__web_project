@@ -846,17 +846,34 @@ input[type="file"]{
   cursor: pointer;
 }
 
+.prof {
+  width: 70%;
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 5% 15%;
+  background-color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.display {
+  display: none;
+}
+
 .display{
   display: none;
 }
 
-#profile-show{
+#profile-show {
   width: 100%;
   height: 91%;
   overflow-y: auto;
 }
 
-#profile-show::-webkit-scrollbar{
+#profile-show::-webkit-scrollbar {
   display: none;
 }
 
@@ -864,57 +881,106 @@ input[type="file"]{
   padding: 0% 3%;
 }
 
-.date h4{
+.date h4 {
   font-family: "Poppins", sans-serif;
   font-size: 1vw;
   color: rgb(145, 145, 145);
-  margin-top: 7%;
 }
 
-.date div{
-  font-family: 'Karla', sans-serif;
+.date div {
+  font-family: "Karla", sans-serif;
   font-size: 1.3vw;
   margin-left: 3%;
-  padding-top: 2%;
-}
-
-.profile-detial div{
   margin-bottom: 2%;
 }
 
-#profile-name{
+.pro-detial div {
+  margin-bottom: 5%;
+}
+
+#prifile-name {
   font-family: "Poppins", sans-serif;
   text-align: center;
-  font-size: 1.5vw;
 }
 
-#profile-position{
-  font-family: 'Karla', sans-serif;
+#profile-icons {
+  font-family: "Karla", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  color: rgb(145, 145, 145);
-  margin-bottom: 3%;
 }
 
-#profile-icons{
-  text-align: center;
-  font-family: 'Karla', sans-serif;
-}
-
-#profile-icons em{
-  font-size: 2vw;
-}
-
-#profile-icons div{
-  display: inline-block;
+#profile-edit{
   width: 20%;
+  margin: 0;
+  cursor: pointer;
+  color: rgb(48, 41, 153);
+  font-size: 1vw;
 }
 
-#profile-icons a{  
+#profile-git{
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  color: rgb(48, 41, 153);
+}
+
+#profile-slack{
+  width: 100%;
+  margin: 0;
+  color: rgb(48, 41, 153);
+}
+
+#profile-icons em {
+  font-size: 1vw;
+}
+
+#profileIcons{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #dfe0e5;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+#profile-icons a {
   text-decoration: none;
   font-size: 1vw;
 }
 
-#profile-icons a:hover{
+#profile-mail a {
+  font-size: 1.1vw;
+  text-decoration: none;
+}
+
+#profileIcons{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #dfe0e5;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+#profile-icons a {
+  text-decoration: none;
+  font-size: 1vw;
+}
+
+#profile-mail a {
+  font-size: 1.1vw;
+  text-decoration: none;
+}
+
+#profile-mail a:hover {
   text-decoration: underline;
   transition: all 0.3s;
 }

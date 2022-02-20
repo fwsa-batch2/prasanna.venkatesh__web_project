@@ -42,6 +42,7 @@
         <div class="dropdown" id="dropdown">
           <button onclick="profileEdit()">Profile</button>
           <button onclick="logOut()">Logout</button>
+          <button id="statusButton" onclick="statusChange()">Leave</button>
         </div>
       </div>
       <div id="noti"><span class="dot"></span><em class="fal fa-bell"></em></div>
@@ -118,11 +119,11 @@
         <div class="pro-detial">
           <div id="prifile-name"></div>
           <div id="profile-icons">
-            <div id="profile-git" class="display"><span id="profileIcons"><a id="git" href=""><em
-                    class="fab fa-github"></em></span>Git hub</a></div>
-            <div id="profile-edit"><span id="profileIcons"><em class="fas fa-pen"></em></span>Edit</div>
-            <div id="profile-slack" class="display"><span id="profileIcons"><a id="slack" href=""><em
-                    class="fab fa-slack"></em></span>Slack</a></div>
+            <a id="git" href="" target="blank"><div id="profile-git"><span id="profileIcons"><em
+                    class="fab fa-github"></em></span>Github</div></a>
+            <div id="profile-edit" onclick="editFormShow()"><span id="profileIcons"><em class="fas fa-pen"></em></span>Edit</div>
+            <a id="slack" href="" target="blank"><div id="profile-slack"><span id="profileIcons"><em
+                    class="fab fa-slack"></em></span>Slack</div></a>
           </div>
           <div class="date">
             <h4>Local time</h4>
@@ -143,17 +144,19 @@
     </div>
 
 
-    <form onsubmit="submithandler(event)">
+    <form onsubmit="editForm(event)" id="editForm" class="display">
       <div id="editFormDiv">
         <div class="editFormContainer">
-          <div id="profileChanege"></div>
+          <div id="profileChanege">
+            <img id="img-input" src="" alt="change-profile" width="100%">
+          </div>
           <div id="uploadImg">Upload Photo</div>
           <div id="removeImg">Remove Photo</div>
           <div id="gitOn">
             <div>Github</div>
             <div id="gitSwitch">
               <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" id="checkGitOnOff" onchange="git()">
                 <span class="slider round"></span>
               </label>
             </div>
@@ -163,34 +166,39 @@
             <div>Slack</div>
             <div id="slackSwitch">
               <label class="switch">
-                <input type="checkbox" onchange="slack()">
+                <input type="checkbox" id="checkSlackOnOff" onchange="slack()">
                 <span class="slider round"></span>
               </label>
             </div>
           </div>
         </div>
         <div class="editFormContainer">
+          <div id="formClose">
+            <div id="formCloseIcon" onclick="closeEditform()">
+              <em class="fas fa-times"></em>
+            </div>
+          </div>
           <div class="detial-div">
             <div class="det">
               <div>
                 <label for="reg-name">Firstname</label>
-                <input type="text" id="reg-name" placeholder="Firstname" pattern="[A-Za-z]{3,20}" required>
+                <input type="text" id="reg-name" placeholder="Firstname">
               </div>
               <div>
                 <label for="reg-lastname">Lastname</label>
-                <input type="text" id="reg-lastname" placeholder="Lastname" pattern="[A-Za-z]{3,20}" required>
+                <input type="text" id="reg-lastname" placeholder="Lastname">
               </div>
               <div>
                 <label for="reg-id">Id no</label>
-                <input type="text" id="reg-id" placeholder="Id no" onkeyup="idnocheck()" required>
+                <input type="text" id="reg-id" placeholder="Id no" onkeyup="idnocheck()">
               </div>
               <div>
                 <label for="reg-squad">Squad name</label>
-                <input type="text" id="reg-squad" placeholder="Squad name" required>
+                <input type="text" id="reg-squad" placeholder="Squad name">
               </div>
               <div>
                 <label for="reg-department">Department</label>
-                <input type="text" id="reg-department" placeholder="Department" pattern="[A-Za-z]{2,20}" required>
+                <input type="text" id="reg-department" placeholder="Department">
               </div>
               <div>
                 <label for="reg-gen">Gender</label>
@@ -206,31 +214,29 @@
               </div>
               <div>
                 <label for="reg-mail">Mail id</label>
-                <input type="email" id="reg-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                  placeholder="Mail@freshclass.com" onkeyup="emailcheck()" required>
+                <input type="email" id="reg-mail" placeholder="Mail@freshclass.com" onkeyup="emailcheck()">
               </div>
               <div>
                 <label for="reg-city">City</label>
-                <input type="text" id="reg-city" pattern="[A-Za-z]{3,20}" placeholder="City" required>
+                <input type="text" id="reg-city" placeholder="City">
               </div>
               <div>
                 <label for="reg-number">Phone no</label>
-                <input type="tel" id="reg-number" placeholder="Phone no" pattern="[0-9]{3}[0-9]{2}[0-9]{3,20}" required>
+                <input type="tel" id="reg-number" placeholder="Phone no">
               </div>
-              <div class="display">
+              <div id="git-input" class="display">
                 <label for="reg-git">Github</label>
-                <input type="text" id="reg-git" placeholder="Git link" required>
+                <input type="text" id="reg-git" placeholder="Git link">
               </div>
-              <div class="display">
+              <div id="slack-input" class="display">
                 <label for="reg-slack">Slack</label>
-                <input type="text" id="reg-slack" placeholder="Slack link" required>
+                <input type="text" id="reg-slack" placeholder="Slack link">
               </div>
               <div>
                 <label for="reg-password">Password</label>
-                <input type="text" id="reg-password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}"
-                  placeholder="Password" required>
+                <input type="text" id="reg-password" placeholder="Password">
               </div>
-              <button id="submit" type="submit">Register</button>
+              <button id="submit" type="submit">Save Changes</button>
             </div>
           </div>
         </div>

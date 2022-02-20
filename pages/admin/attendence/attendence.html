@@ -45,7 +45,7 @@
           <button>Profile</button>
           <button onclick="logOut()">Logout</button>
         </div>
-      </div> 
+      </div>
       <div id="notification"><span class="dot"></span><em class="fal fa-bell"></em></div>
       <div id="add-per" onclick="studentreg()"><em class="fal fa-user-plus"></em></div>
     </div>
@@ -55,41 +55,37 @@
       </div>
       <div class="main-menu">
         <div class="button-div">
-          <a href="./../profile/profile.html" class="btn visited">
+          <a href="./../profile/profile.html" class="button">
             <em class="fal fa-users"></em><span class="box tooltip">Profiles</span>
           </a>
         </div>
         <div class="button-div">
-          <a href="./../schedule/schedule.html" class="btn">
+          <a href="./../schedule/schedule.html" class="button">
             <em class="fal fa-clock"></em><span class="box tooltip">Schedule</span>
           </a>
         </div>
         <div class="button-div">
-          <a href="./../attendence/attendence.html" class="btn">
-            <em class="fal fa-clipboard-user"></em><span
-              class="box tooltip">Attendence</span>
+          <a href="./../attendence/attendence.html" class="button visited">
+            <em class="fal fa-clipboard-user"></em><span class="box tooltip">Attendence</span>
           </a>
         </div>
         <div class="button-div">
-          <a href="./../assignment/assignment.html" class="btn">
+          <a href="./../assignment/assignment.html" class="button">
             <em class="fal fa-books"></em><span class="box tooltip">Assignment</span>
           </a>
         </div>
         <div class="button-div">
-          <a href="./../query/query.html" class="btn">
+          <a href="./../query/query.html" class="button">
             <em class="fal fa-comments-alt"></em><span class="box tooltip">Query</span>
           </a>
         </div>
         <div class="button-div">
-          <a href="https://freshworks.zoom.us/my/b2classroom" class="btn">
+          <a href="https://freshworks.zoom.us/my/b2classroom" class="button">
             <em class="fal fa-video"></em><span class="box tooltip">Class</span>
           </a>
         </div>
       </div>
-      <div class="settings">
-        <a href="./../settings/settings.html" class="btn-set"><em class="fal fa-cog"></em></a>
-      </div>
-      </div>
+    </div>
     <div id="main-div" class="main-width">
       <div>
         <table id="att_table">
@@ -100,7 +96,7 @@
               <th id="id-number">Id</th>
               <th id="firpre">
                 <label class="lable" for="presentcheck">Mark all</label>
-                <input type="checkbox" id="markallpresent"  onchange="markallpresent()" checked>
+                <input type="checkbox" id="markallpresent" onchange="markallpresent()" checked>
               </th>
             </tr>
           </thead>
@@ -111,14 +107,19 @@
     </div>
     <div id="slider" class="slider-change">
       <div class="close">
-        <div id="reg-name-div"></div>
-        <div id="cal">
+        <div id="calendar-title"></div>
+        <div id="close-icon" class="close-icon display">
+          <div class="close-button" onclick="closereg()">
+            <em class="far fa-times"></em>
+          </div>
+        </div>
+        <div id="calendar">
           <div id="monthdateyear"><span id="month"></span><span id="date"></span>,<span id="year"></span></div>
           <div id="next"><em class="fas fa-angle-right"></em></div>
-          <div id="prev"><em class="fas fa-angle-left"></em></div>
+          <div id="previous"><em class="fas fa-angle-left"></em></div>
         </div>
       </div>
-      <div id="callist">
+      <div id="calendar-list">
         <div id="days-list">
           <div class="sat">Sun</div>
           <div class="mon">Mon</div>
@@ -132,8 +133,10 @@
       </div>
     </div>
   </section>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+    integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="./attendence.js"></script>
 </body>
 
