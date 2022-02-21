@@ -43,6 +43,23 @@ function logOut() {
     });
 }
 
+function dropDown() {
+  document.getElementById("dropdown").classList.toggle("show");
+}
+
+window.onclick = function (event) {
+  if (!event.target.matches(".dropdownbtn")) {
+    let dropdowns = document.getElementsByClassName("dropdown");
+    let i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
+      }
+    }
+  }
+};
+
 const minDate = new Date().getDate();
 const minYear = new Date().getFullYear();
 let minMonth = new Date().getMonth()+1;

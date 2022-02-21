@@ -41,10 +41,24 @@ function logOut() {
     .then(function () {
       window.location.href = "./../../../index.html";
     });
+}
 
+function dropDown() {
+  document.getElementById("dropdown").classList.toggle("show");
+}
+
+window.onclick = function (event) {
+  if (!event.target.matches(".dropdownbtn")) {
+    let dropdowns = document.getElementsByClassName("dropdown");
+    let i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
+      }
+    }
   }
-
-  
+};
 
 document.getElementById("calendar-title").innerText = "Calendar";
 document.querySelector(".close").style.backgroundColor = "#63bfbf";
@@ -181,216 +195,6 @@ function present() {
     });
 }
 
-function onchangePresent(q) {
-  if (document.getElementsByClassName(`checkbox`)[q].checked) {
-    document.getElementsByClassName(`Present`)[q].classList.add("clickpr");
-    document.getElementsByClassName(`Present`)[q].classList.remove("clickr");
-    document.getElementsByClassName(`Present`)[q].innerText = "Present";
-  } else {
-    document.getElementsByClassName(`Present`)[q].classList.add("clickr");
-    document.getElementsByClassName(`Present`)[q].classList.remove("clickpr");
-    document.getElementsByClassName(`Present`)[q].innerText = "Absent";
-  }
-}
-
-function saveDetails() {
-  axios
-    .get("https://61c01eb233f24c0017823130.mockapi.io/Studentlist")
-    .then(function (detials) {
-      let data = detials.data;
-      studentdetial(data);
-    });
-}
-
-let attendence = [];
-
-function studentdetial(data) {
-  const months = document.getElementById("month").innerText;
-  const date = document.getElementById("date").innerText;
-  const years = document.getElementById("year").innerText;
-
-  let fulldate = `${date}/${months}/${years}`;
-
-  let len = data.length;
-  let presentcheck = "";
-
-  for (let x = 0; x < len; x++) {
-    if (document.getElementsByClassName(`checkbox`)[x].checked) {
-      presentcheck = "Present";
-    } else {
-      presentcheck = "Absent";
-    }
-
-    const name = `${data[x].name} ${data[x].lastname}`;
-    const idno = data[x].idno;
-
-    let attendenceObj = {
-      date: fulldate,
-      attendence: presentcheck,
-      name: name,
-      idno: idno,
-    };
-
-    attendence.push(attendenceObj);
-
-
-  }
-  takevalue();
-
-
-  // axios
-  //   .get("https://61c01eb233f24c0017823130.mockapi.io/attendences")
-  //   .then(function (attendences) {
-  //     let datas = attendences.data;
-
-  //     let leng = datas.length;
-  //     let len = data.length;
-
-  //     let presentcheck = "";
-  //     let name = "";
-  //     let idno = "";
-
-  //     for (let x = 0; x < len; x++) {
-  //       if (document.getElementsByClassName(`checkbox`)[x].checked) {
-  //         presentcheck = "Present";
-  //       } else {
-  //         presentcheck = "Absent";
-  //       }
-
-  //       name = `${data[x].name} ${data[x].lastname}`;
-  //       idno = data[x].idno;
-
-  //       if (leng == 0) {
-  //         axios.post(
-  //           "https://61c01eb233f24c0017823130.mockapi.io/attendences",
-  //           {
-  //             date: fulldate,
-  //             attendence: presentcheck,
-  //             name: name,
-  //             idno: idno,
-  //           }
-  //         );
-  //       }
-  // } else if (datas[x].date != fulldate) {
-  //   console.log(x);
-  //   axios
-  //     .post("https://61c01eb233f24c0017823130.mockapi.io/attendences", {
-  //       date: fulldate,
-  //       attendence: presentcheck,
-  //       name: name,
-  //       idno: idno,
-  //     })
-  //     .then(function () {
-  //       showPresent();
-  //     });
-  // }
-  //   }
-
-  // });
-}
-
-// function showPresent() {
-//   const months = document.getElementById("month").innerText;
-//   const date = document.getElementById("date").innerText;
-//   const years = document.getElementById("year").innerText;
-
-//   let fulldate = `${date}/${months}/${years}`;
-
-//   const attendenceDiv = document.getElementById("table_body");
-//   const attendenceDivlength = attendenceDiv.getElementsByTagName("tr").length;
-
-//   axios
-//     .get(
-//       `https://61c01eb233f24c0017823130.mockapi.io/attendences?filter=${fulldate}`
-//     )
-//     .then(function (selects) {
-//       let data = selects.data;
-
-//       let lenr = data.length;
-
-//       if (lenr == 0) {
-//         for (let o = 0; o < attendenceDivlength; o++) {
-//           document
-//             .getElementsByClassName("Present")
-//             [o].classList.add("clickpr");
-//           document
-//             .getElementsByClassName("Present")
-//             [o].classList.remove("clickr");
-//           document.getElementsByClassName(`Present`)[o].innerText = "Present";
-//           document.getElementsByClassName(`checkbox`)[o].checked = true;
-//         }
-//       }
-
-//       for (let g = 0; g < lenr; g++) {
-//         if (data[g].attendence == "Present") {
-//           document
-//             .getElementsByClassName("Present")
-//             [g].classList.add("clickpr");
-//           document
-//             .getElementsByClassName("Present")
-//             [g].classList.remove("clickr");
-//           document.getElementsByClassName(`checkbox`)[g].checked = true;
-//           document.getElementsByClassName(`Present`)[g].innerText = "Present";
-//         } else {
-//           document.getElementsByClassName(`Present`)[g].classList.add("clickr");
-//           document
-//             .getElementsByClassName(`Present`)
-//             [g].classList.remove("clickpr");
-//           document.getElementsByClassName(`checkbox`)[g].checked = false;
-//           document.getElementsByClassName(`Present`)[g].innerText = "Absent";
-//         }
-//       }
-//     });
-// }
-
-function takevalue() {
-  const months = document.getElementById("month").innerText;
-  const date = document.getElementById("date").innerText;
-  const years = document.getElementById("year").innerText;
-
-  let fulldate = `${date}/${months}/${years}`;
-
-  // const getValue = JSON.parse(localStorage.getItem("ATTENDENCE"))
-  // console.log(getValue);
-
-  let len = attendence.length;
-  // console.log(len);
-  console.log(attendence);
-
-  for (let o = len-2; o < len; o++) {
-
-    console.log(o);
-  
-    // console.log(attendence[o].date != fulldate);
-  //   console.log(o);
-  //   if(getValue[o].date == fulldate){
-  //     console.log(o);
-  //     attendence.splice(o, 1);
-  //   }
-  }
-}
-
-
-function markallpresent() {
-  const ele = document.getElementById("markallpresent");
-
-  const attendenceDiv = document.getElementById("table_body");
-  const attendenceDivlength = attendenceDiv.getElementsByTagName("tr").length;
-
-  for (let t = 0; t < attendenceDivlength; t++) {
-    let checkboxes = document.getElementsByClassName(`checkbox`)[t];
-    if (ele.checked) {
-      checkboxes.checked = true;
-    } else {
-      checkboxes.checked = false;
-    }
-
-    onchangePresent(t);
-  }
-}
-
 checkLogin();
-markallpresent();
 present();
 calender();
-// showPresent();

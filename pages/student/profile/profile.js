@@ -25,9 +25,8 @@ function checkLogin() {
 
                 let obj = { id: id, Sutdid: loginstudid };
                 idarray.push(obj);
-
                 localStorage.setItem("ID", JSON.stringify(idarray));
-                loginExtist = false;
+                loginExtist = false; 
               }
             }
           }
@@ -94,18 +93,18 @@ function loginStudentProfile() {
 
       let get = loginStudentData;
 
-      if(get.git == ""){
+      if (get.git == "") {
         document.getElementById("profile-git").classList.add("display");
-      }else{
+      } else {
         document.getElementById("profile-git").classList.remove("display");
         document.getElementById("git").href = get.git;
         document.getElementById("checkGitOnOff").checked = true;
         document.getElementById("git-input").classList.remove("display");
       }
 
-      if(get.slack == ""){
+      if (get.slack == "") {
         document.getElementById("profile-slack").classList.add("display");
-      }else{
+      } else {
         document.getElementById("profile-slack").classList.remove("display");
         document.getElementById("slack").href = get.slack;
         document.getElementById("checkSlackOnOff").checked = true;
@@ -209,69 +208,74 @@ function showProfiles() {
           document.getElementById("profile-edit").classList.add("display");
           let id = data[t].id;
           showdetial(id);
-        }
+        };
 
-        if(document.getElementsByClassName("statuss")[i].innerText == "Active"){
-          document.getElementsByClassName("statuss")[i].style.backgroundColor="#63bfbf"
-        }else if(document.getElementsByClassName("statuss")[i].innerText == "Leave"){
-          document.getElementsByClassName("statuss")[i].style.backgroundColor="#1bdf3c"
-        }else{
-          document.getElementsByClassName("statuss")[i].style.backgroundColor="red"
+        if (
+          document.getElementsByClassName("statuss")[t].innerText == "Active"
+        ) {
+          document.getElementsByClassName("statuss")[t].style.backgroundColor =
+            "#63bfbf";
+        } else if (
+          document.getElementsByClassName("statuss")[t].innerText == "Leave"
+        ) {
+          document.getElementsByClassName("statuss")[t].style.backgroundColor =
+            "#1bdf3c";
+        } else {
+          document.getElementsByClassName("statuss")[t].style.backgroundColor =
+            "red";
         }
       }
     });
 }
 
 function showdetial(id) {
-
   console.log("Prasanna");
-      axios
-        .get("https://61c01eb233f24c0017823130.mockapi.io/Studentlist/" + id)
-        .then(function (Studentlists) {
-          let ampm = "";
+  axios
+    .get("https://61c01eb233f24c0017823130.mockapi.io/Studentlist/" + id)
+    .then(function (Studentlists) {
+      let ampm = "";
 
-          if (new Date().getHours() < 12) {
-            ampm = "AM";
-          } else {
-            ampm = "PM";
-          }
-          let time = new Date().getHours() % 12;
+      if (new Date().getHours() < 12) {
+        ampm = "AM";
+      } else {
+        ampm = "PM";
+      }
+      let time = new Date().getHours() % 12;
 
-          if (time == 0) {
-            time = 12;
-          }
+      if (time == 0) {
+        time = 12;
+      }
 
-          let get = Studentlists.data;
+      let get = Studentlists.data;
 
-          if(get.git == ""){
-            document.getElementById("profile-git").classList.add("display");
-          }else{
-            document.getElementById("profile-git").classList.remove("display");
-            document.getElementById("git").href = get.git;
-          }
+      if (get.git == "") {
+        document.getElementById("profile-git").classList.add("display");
+      } else {
+        document.getElementById("profile-git").classList.remove("display");
+        document.getElementById("git").href = get.git;
+      }
 
-          if(get.slack == ""){
-            document.getElementById("profile-slack").classList.add("display");
-          }else{
-            document.getElementById("profile-slack").classList.remove("display");
-            document.getElementById("slack").href = get.slack;
-          }
+      if (get.slack == "") {
+        document.getElementById("profile-slack").classList.add("display");
+      } else {
+        document.getElementById("profile-slack").classList.remove("display");
+        document.getElementById("slack").href = get.slack;
+      }
 
-          document.getElementById("profile-pictue").src = get.image;
-          document.getElementById("prifile-name").innerText =
-            get.name + " " + get.lastname;
-          document.getElementById("git").href = get.git;
-          document.getElementById("slack").href = get.slack;
-          document.getElementById("profile-time").innerText =
-            time + ":" + new Date().getMinutes() + " " + ampm;
-          document.getElementById("profile-mail").innerHTML =
-            "<a href='mailto:" + get.mail + "'>" + get.mail + "</a>";
-          document.getElementById("profile-number").innerText = get.number;
-          document.getElementById("profile-city").innerText = get.city;
-          document.getElementById("profile-department").innerText =
-            get.department;
-          document.getElementById("profile-dob").innerText = get.dob;
-        });
+      document.getElementById("profile-pictue").src = get.image;
+      document.getElementById("prifile-name").innerText =
+        get.name + " " + get.lastname;
+      document.getElementById("git").href = get.git;
+      document.getElementById("slack").href = get.slack;
+      document.getElementById("profile-time").innerText =
+        time + ":" + new Date().getMinutes() + " " + ampm;
+      document.getElementById("profile-mail").innerHTML =
+        "<a href='mailto:" + get.mail + "'>" + get.mail + "</a>";
+      document.getElementById("profile-number").innerText = get.number;
+      document.getElementById("profile-city").innerText = get.city;
+      document.getElementById("profile-department").innerText = get.department;
+      document.getElementById("profile-dob").innerText = get.dob;
+    });
 }
 
 function coachdetial() {
@@ -398,27 +402,27 @@ function profileEdit() {
   document.getElementById("reg-name-div").innerText = "Profile";
   document.getElementById("profile-show").classList.remove("display");
   document.getElementById("profile-edit").classList.remove("display");
-    loginStudentProfile();
+  loginStudentProfile();
 }
 
-function slack(){
-  document.getElementById("slack-input").classList.toggle("display")
-  if(document.getElementById("checkSlackOnOff").checked){
+function slack() {
+  document.getElementById("slack-input").classList.toggle("display");
+  if (document.getElementById("checkSlackOnOff").checked) {
     document.getElementById("slack-input").classList.remove("display");
     document.getElementById("checkSlackOnOff").checked = true;
-  }else{
+  } else {
     document.getElementById("slack-input").classList.add("display");
-    document.getElementById("reg-slack").value="";
+    document.getElementById("reg-slack").value = "";
   }
 }
 
-function git(){
-  if(document.getElementById("checkGitOnOff").checked){
+function git() {
+  if (document.getElementById("checkGitOnOff").checked) {
     document.getElementById("git-input").classList.remove("display");
     document.getElementById("checkGitOnOff").checked = true;
-  }else{
+  } else {
     document.getElementById("git-input").classList.add("display");
-    document.getElementById("reg-git").value="";
+    document.getElementById("reg-git").value = "";
   }
 }
 
@@ -441,57 +445,58 @@ function editForm() {
 
   let storeId = JSON.parse(localStorage.getItem("ID"));
 
-  axios.put(
-    "https://61c01eb233f24c0017823130.mockapi.io/Studentlist/" +
-      storeId[0].Sutdid,
-    {
-      name: firstname,
-      lastname: lastname,
-      idno: idno,
-      dob: dob,
-      squad: squad,
-      department: department,
-      gen: genders,
-      mail: mail,
-      number: number,
-      city: city,
-      git: gitlink,
-      slack: slacklink,
-      password: password,
-    }
-  ).then(function(){
-    loginStudentProfile()
-  });
+  axios
+    .put(
+      "https://61c01eb233f24c0017823130.mockapi.io/Studentlist/" +
+        storeId[0].Sutdid,
+      {
+        name: firstname,
+        lastname: lastname,
+        idno: idno,
+        dob: dob,
+        squad: squad,
+        department: department,
+        gen: genders,
+        mail: mail,
+        number: number,
+        city: city,
+        git: gitlink,
+        slack: slacklink,
+        password: password,
+      }
+    )
+    .then(function () {
+      loginStudentProfile();
+    });
 }
 
-function editFormShow(){
+function editFormShow() {
   document.getElementById("editForm").classList.remove("display");
-  loginStudentProfile()
+  loginStudentProfile();
 }
 
-function closeEditform(){
+function closeEditform() {
   document.getElementById("editForm").classList.add("display");
 }
 
-function statusChange(){
+function statusChange() {
   let storeId = JSON.parse(localStorage.getItem("ID"));
 
   let status = document.getElementById("statusButton").innerText;
 
-  if(status == "Active"){
-    document.getElementById("statusButton").innerText="Leave";
-  }else if(status == "Leave"){
-    document.getElementById("statusButton").innerText="Active";
+  if (status == "Active") {
+    document.getElementById("statusButton").innerText = "Leave";
+  } else if (status == "Leave") {
+    document.getElementById("statusButton").innerText = "Active";
   }
 
   axios.put(
     "https://61c01eb233f24c0017823130.mockapi.io/Studentlist/" +
       storeId[0].Sutdid,
     {
-      status:status
+      status: status,
     }
   );
-
 }
 
 checkLogin();

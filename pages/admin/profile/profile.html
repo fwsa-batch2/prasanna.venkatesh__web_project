@@ -45,7 +45,7 @@
           <button>Profile</button>
           <button onclick="logOut()">Logout</button>
         </div>
-      </div> 
+      </div>
       <div id="notification"><span class="dot"></span><em class="fal fa-bell"></em></div>
       <div id="add-per" onclick="studentreg()"><em class="fal fa-user-plus"></em></div>
     </div>
@@ -66,8 +66,7 @@
         </div>
         <div class="button-div">
           <a href="./../attendence/attendence.html" class="btn">
-            <em class="fal fa-clipboard-user"></em><span
-              class="box tooltip">Attendence</span>
+            <em class="fal fa-clipboard-user"></em><span class="box tooltip">Attendence</span>
           </a>
         </div>
         <div class="button-div">
@@ -86,10 +85,7 @@
           </a>
         </div>
       </div>
-      <div class="settings">
-        <a href="./../settings/settings.html" class="btn-set"><em class="fal fa-cog"></em></a>
-      </div>
-      </div>
+    </div>
     <div id="main-div" class="main-width">
       <div id="student-head">
         <div id="student-name">Name</div>
@@ -158,10 +154,12 @@
               </div>
               <div>
                 <label for="reg-dob">Date of birth</label>
-                <input type="date" id="reg-dob"></div>
+                <input type="date" id="reg-dob">
+              </div>
               <div>
                 <label for="reg-mail">Mail id</label>
-                <input type="email" id="reg-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Mail@freshclass.com" onkeyup="emailcheck()" required>
+                <input type="email" id="reg-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  placeholder="Mail@freshclass.com" onkeyup="emailcheck()" required>
               </div>
               <div>
                 <label for="reg-city">City</label>
@@ -173,9 +171,10 @@
               </div>
               <div>
                 <label for="reg-password">Password</label>
-                <input type="text" id="reg-password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" placeholder="Password" required>
+                <input type="text" id="reg-password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}"
+                  placeholder="Password" required>
               </div>
-                <button id="submit" type="submit">Register</button>
+              <button id="submit" type="submit">Register</button>
             </div>
         </form>
       </div>
@@ -188,10 +187,12 @@
       <div class="pro-detial">
         <div id="prifile-name"></div>
         <div id="profile-icons">
-          <a id="git" href="" target="blank"><div id="profile-git"><span id="profileIcons"><em
-                  class="fab fa-github"></em></span>Github</div></a>
-          <a id="slack" href="" target="blank"><div id="profile-slack"><span id="profileIcons"><em
-                  class="fab fa-slack"></em></span>Slack</div></a>
+          <a id="git" href="" target="blank">
+            <div id="profile-git"><span id="profileIcons"><em class="fab fa-github"></em></span>Github</div>
+          </a>
+          <a id="slack" href="" target="blank">
+            <div id="profile-slack"><span id="profileIcons"><em class="fab fa-slack"></em></span>Slack</div>
+          </a>
         </div>
         <div class="date">
           <h4>Local time</h4>
@@ -214,7 +215,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
     integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
     crossorigin="anonymous" referrerpolicy="no-referrer">
-  </script>
+    </script>
 
   <script src="./profile.js"></script>
 </body>

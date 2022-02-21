@@ -113,7 +113,6 @@ function submithandler(event) {
           exist = true;
         }
       }
-      console.log(exist);
 
       if (exist) {
         alert(`This user is already exist`);
